@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Facilities | BMSCE</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .facilities-hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(3, 10, 20, 0.7), rgba(3, 10, 20, 0.7)), url('bmsce-img-1.jpg') no-repeat center center; background-size: cover; margin-top: 80px; }
+        .facilities-grid { max-width: 1400px; margin: -100px auto 100px; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .facility-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+        .facility-card:hover { transform: translateY(-15px); border-color: var(--accent-cyan); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); }
+        .facility-img { width: 100%; height: 280px; background-size: cover; background-position: center; transition: all 0.6s ease; }
+        .facility-card:hover .facility-img { transform: scale(1.1); }
+        .facility-info { padding: 40px; }
+        .facility-info h3 { font-size: 2rem; color: #fff; margin-bottom: 15px; font-weight: 700; }
+        .facility-info p { color: #94a3b8; line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem; }
+        .facility-btn { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-cyan); text-decoration: none; font-weight: 600; font-size: 1rem; transition: gap 0.3s ease; }
+        .facility-btn:hover { gap: 15px; }
+        .neon-tag { position: absolute; top: 20px; right: 20px; background: rgba(0, 0, 0, 0.6); padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
+        @media (max-width: 768px) { .facilities-grid { grid-template-columns: 1fr; margin-top: 40px; } .facilities-hero { height: 40vh; } }
+    </style>
+</head>
+<body class="about-page">
+    <div class="about-brand-bg"></div>
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content"><a href="placement-about.html">About Placements</a><a href="placement-training.html">Placement Training</a></div>
+            </li>
+            <li><a href="facilities.html" class="active">Facilities</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <section class="facilities-hero">
+        <div class="reveal-on-scroll">
+            <h1 class="text-gradient" style="font-size: 5rem; margin-bottom: 10px;">World-Class Facilities</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase;">Empowering Student Life & Academic Excellence</p>
+        </div>
+    </section>
+
+    <div class="facilities-grid">
+        <!-- Hospital -->
+        <div class="facility-card reveal-on-scroll">
+            <div class="neon-tag">24/7 Care</div>
+            <div class="facility-img" style="background-image: url('Bms Hospital/hospital background.avif');"></div>
+            <div class="facility-info">
+                <h3>B S Narayan Memorial Hospital</h3>
+                <p>Advanced diagnostic and healthcare infrastructure providing specialist care, trauma response, and clinical leadership to the community.</p>
+                <a href="facilities-hospital.html" class="facility-btn">Explore Medical Services →</a>
+            </div>
+        </div>
+
+        <!-- Hostel -->
+        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.1s;">
+            <div class="neon-tag">Residential</div>
+            <div class="facility-img" style="background-image: url('hostel background.jpg');"></div>
+            <div class="facility-info">
+                <h3>BMSCE Hostels</h3>
+                <p>Providing safe, comfortable, and vibrant living spaces with modern amenities, ensuring a "home away from home" for international and local students.</p>
+                <a href="facilities-hostel.html" class="facility-btn">Hostel Life & Amenities →</a>
+            </div>
+        </div>
+
+        <!-- Library -->
+        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.2s;">
+            <div class="neon-tag">Knowledge Hub</div>
+            <div class="facility-img" style="background-image: url('library background.png');"></div>
+            <div class="facility-info">
+                <h3>BMSCE Central Library</h3>
+                <p>A massive collection of print and digital resources, research journals, and quiet study zones supported by advanced library management systems.</p>
+                <a href="facilities-library.html" class="facility-btn">Access Digital Repository →</a>
+            </div>
+        </div>
+
+        <!-- Data Centre -->
+        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.3s;">
+            <div class="neon-tag">Cyber Infrastructure</div>
+            <div class="facility-img" style="background-image: url('datacentresbackground.avif');"></div>
+            <div class="facility-info">
+                <h3>B S Narayan Data Centre</h3>
+                <p>Powering the institution with a 10Gbps high-speed backbone, NVIDIA DGX AI servers, and robust cloud services for research and e-governance.</p>
+                <a href="facilities-data.html" class="facility-btn">IT Services & Infrastructure →</a>
+            </div>
+        </div>
+
+        <!-- Sports -->
+        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.4s;">
+            <div class="neon-tag">Excellence</div>
+            <div class="facility-img" style="background-image: url('bms_sports_stadium_premium.png');"></div>
+            <div class="facility-info">
+                <h3>BMSCE Sports & Stadium</h3>
+                <p>State-of-the-art multi-sport indoor stadium, high-tech gymnasium, and vast outdoor playgrounds promoting health and competitive sportsmanship.</p>
+                <a href="facilities-sports.html" class="facility-btn">Sports Achievements & Facilities →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 BMSCE Bengaluru. All Rights Reserved.</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>

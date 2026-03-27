@@ -11,7 +11,7 @@
   --bg-dark: #030A14;
   --bg-gradient: linear-gradient(135deg, #030A14 0%, #0A192F 100%);
   --text-main: #E2E8F0;
-  --text-muted: #94A3B8;
+  --text-muted: #cbd5e1;
   --accent-cyan: #00F2FE;
   --accent-blue: #4FACFE;
   
@@ -331,7 +331,7 @@ header.scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(3,10,20,0.1) 0%, rgba(3,10,20,0.4) 75%, #030A14 100%);
+  background: linear-gradient(to bottom, rgba(3,10,20,0.35) 0%, rgba(3,10,20,0.7) 60%, #030A14 100%);
   z-index: -1;
 }
 
@@ -353,18 +353,20 @@ header.scrolled {
 
 .hero-tagline {
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 25px;
-  color: var(--text-muted);
+  color: #e2e8f0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 .hero-intro {
   font-size: 1.15rem;
   margin-bottom: 50px;
   font-family: var(--font-body);
-  color: rgba(226, 232, 240, 0.8);
+  color: #f1f5f9;
   max-width: 700px;
   margin-inline: auto;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 /* Stunning Buttons */
