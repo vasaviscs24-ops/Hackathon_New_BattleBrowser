@@ -1,28 +1,142 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Facilities | BMSCE</title>
+    <meta name="description" content="Explore world-class facilities at B.M.S. College of Engineering - Hospital, Hostel, Library, Data Centre, Sports and Counselling.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .facilities-hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(3, 10, 20, 0.7), rgba(3, 10, 20, 0.7)), url('bmsce-img-1.jpg') no-repeat center center; background-size: cover; margin-top: 80px; }
-        .facilities-grid { max-width: 1400px; margin: -100px auto 100px; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
-        .facility-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
-        .facility-card:hover { transform: translateY(-15px); border-color: var(--accent-cyan); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); }
-        .facility-img { width: 100%; height: 280px; background-size: cover; background-position: center; transition: all 0.6s ease; }
-        .facility-card:hover .facility-img { transform: scale(1.1); }
-        .facility-info { padding: 40px; }
-        .facility-info h3 { font-size: 2rem; color: #fff; margin-bottom: 15px; font-weight: 700; }
-        .facility-info p { color: #94a3b8; line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem; }
-        .facility-btn { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-cyan); text-decoration: none; font-weight: 600; font-size: 1rem; transition: gap 0.3s ease; }
-        .facility-btn:hover { gap: 15px; }
-        .neon-tag { position: absolute; top: 20px; right: 20px; background: rgba(0, 0, 0, 0.6); padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
-        @media (max-width: 768px) { .facilities-grid { grid-template-columns: 1fr; margin-top: 40px; } .facilities-hero { height: 40vh; } }
+        /* ── Page Layout ── */
+        .fac-hero {
+            height: 45vh;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(to bottom, rgba(3,10,20,0.5) 0%, rgba(3,10,20,0.85) 100%),
+                        url('Bms Hospital/hospital.avif') no-repeat center center;
+            background-size: cover;
+            margin-top: 80px;
+        }
+
+        .fac-body { max-width: 1300px; margin: 0 auto; padding: 80px 40px 120px; }
+
+        /* ── Facility Block ── */
+        .fac-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.02);
+            margin-bottom: 60px;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .fac-block:hover {
+            border-color: rgba(0,242,254,0.25);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+        }
+        /* Alternate layout for every other block */
+        .fac-block.reverse { direction: rtl; }
+        .fac-block.reverse > * { direction: ltr; }
+
+        .fac-img-wrap { position: relative; overflow: hidden; min-height: 440px; }
+        .fac-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .fac-block:hover .fac-img-wrap img { transform: scale(1.06); }
+
+        /* Gradient overlay on image */
+        .fac-img-wrap::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(3,10,20,0.3), transparent);
+            pointer-events: none;
+        }
+        .fac-block.reverse .fac-img-wrap::after {
+            background: linear-gradient(270deg, rgba(3,10,20,0.3), transparent);
+        }
+
+        /* Tag badge */
+        .fac-tag {
+            position: absolute; top: 24px; left: 24px; z-index: 2;
+            background: rgba(0,242,254,0.12);
+            border: 1px solid rgba(0,242,254,0.35);
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: 0.75rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 2px;
+            color: #00f2fe;
+        }
+
+        /* Text side */
+        .fac-text {
+            padding: 55px 50px;
+            display: flex; flex-direction: column; justify-content: center;
+            gap: 20px;
+        }
+
+        .fac-num {
+            font-size: 5rem; font-weight: 800; line-height: 1;
+            background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(79,172,254,0.08));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fac-title {
+            font-size: 2.2rem; font-weight: 700; line-height: 1.2;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fac-title span {
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fac-desc { color: #94a3b8; line-height: 1.8; font-size: 1.05rem; }
+
+        .fac-pills {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px;
+        }
+        .pill {
+            padding: 8px 18px;
+            background: rgba(0,242,254,0.06);
+            border: 1px solid rgba(0,242,254,0.15);
+            border-radius: 50px;
+            font-size: 0.85rem; color: #cbd5e1; font-weight: 600;
+        }
+
+        .fac-divider {
+            width: 50px; height: 3px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            border-radius: 3px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .fac-block, .fac-block.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .fac-img-wrap { min-height: 300px; }
+            .fac-text { padding: 40px 30px; }
+            .fac-title { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body class="about-page">
     <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
     <header id="navbar">
         <div class="logo-container">
             <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
@@ -42,8 +156,8 @@
             <li class="dropdown"><a href="#">Academics</a>
                 <div class="dropdown-content">
                     <a href="academics-cse.html">Computer Science</a>
-                    <a href="academics-aiml.html">AI & Machine Learning</a>
-                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-aiml.html">AI &amp; Machine Learning</a>
+                    <a href="academics-ece.html">Electronics &amp; Communication</a>
                     <a href="academics-mechanical.html">Mechanical Engineering</a>
                     <a href="academics-civil.html">Civil Engineering</a>
                     <a href="academics-chemical.html">Chemical Engineering</a>
@@ -55,87 +169,176 @@
             </li>
             <li class="dropdown"><a href="research-about.html">Research</a>
                 <div class="dropdown-content">
-                    <a href="research-about.html">About R&D</a>
+                    <a href="research-about.html">About R&amp;D</a>
                     <a href="research-labs.html">Innovative Labs</a>
                     <a href="research-nano.html">Nanomaterials Centre</a>
                     <a href="research-patents.html">Patents Filed</a>
                 </div>
             </li>
             <li class="dropdown"><a href="placement-about.html">Placements</a>
-                <div class="dropdown-content"><a href="placement-about.html">About Placements</a><a href="placement-training.html">Placement Training</a></div>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
             </li>
-            <li><a href="facilities.html" class="active">Facilities</a></li>
             <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="facilities.html" class="active">Facilities</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </header>
 
-    <section class="facilities-hero">
+    <!-- HERO -->
+    <section class="fac-hero">
         <div class="reveal-on-scroll">
-            <h1 class="text-gradient" style="font-size: 5rem; margin-bottom: 10px;">World-Class Facilities</h1>
-            <p style="color: #94a3b8; font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase;">Empowering Student Life & Academic Excellence</p>
+            <p style="color:#00f2fe;font-size:0.9rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;">Campus Infrastructure</p>
+            <h1 class="text-gradient" style="font-size:4.5rem;margin-bottom:12px;">World-Class Facilities</h1>
+            <p style="color:#94a3b8;font-size:1.15rem;max-width:600px;margin:0 auto;">Six state-of-the-art facilities designed to elevate every dimension of student life and academic excellence.</p>
         </div>
     </section>
 
-    <div class="facilities-grid">
-        <!-- Hospital -->
-        <div class="facility-card reveal-on-scroll">
-            <div class="neon-tag">24/7 Care</div>
-            <div class="facility-img" style="background-image: url('Bms Hospital/hospital background.avif');"></div>
-            <div class="facility-info">
-                <h3>B S Narayan Memorial Hospital</h3>
-                <p>Advanced diagnostic and healthcare infrastructure providing specialist care, trauma response, and clinical leadership to the community.</p>
-                <a href="facilities-hospital.html" class="facility-btn">Explore Medical Services →</a>
+    <div class="fac-body">
+
+        <!-- 1 · HOSPITAL -->
+        <div class="fac-block reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">24 / 7 Medical Care</span>
+                <img src="Bms Hospital/hospital.avif" alt="BMS Hospital">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">01</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">B S Narayan Memorial <span>Hospital</span></h2>
+                <p class="fac-desc">
+                    The on-campus hospital is a fully equipped primary healthcare centre committed to the holistic well-being of every student, faculty member, and staff. Managed by experienced medical professionals, it provides round-the-clock outpatient care, emergency response, and specialist consultations across general medicine, dermatology, orthopaedics, and gynaecology. Equipped with a modern biochemical laboratory, digital X-ray unit, TMT/ECHO diagnostics, and a 24/7 pharmacy, the facility ensures that critical care is always within reach. Regular health drives, blood donation camps, and awareness programs further extend its commitment to community wellness beyond the campus boundary.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">💊 24/7 Pharmacy</span>
+                    <span class="pill">🩺 Emergency Care</span>
+                    <span class="pill">🩻 Digital X-Ray</span>
+                    <span class="pill">🔬 Biochemical Lab</span>
+                    <span class="pill">🚑 Ambulance Ready</span>
+                </div>
             </div>
         </div>
 
-        <!-- Hostel -->
-        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.1s;">
-            <div class="neon-tag">Residential</div>
-            <div class="facility-img" style="background-image: url('hostel background.jpg');"></div>
-            <div class="facility-info">
-                <h3>BMSCE Hostels</h3>
-                <p>Providing safe, comfortable, and vibrant living spaces with modern amenities, ensuring a "home away from home" for international and local students.</p>
-                <a href="facilities-hostel.html" class="facility-btn">Hostel Life & Amenities →</a>
+        <!-- 2 · HOSTEL -->
+        <div class="fac-block reverse reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">Residential Life</span>
+                <img src="Bms Hospital/hostel2.avif" alt="BMS Hostel">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">02</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">BMSCE <span>Hostels</span></h2>
+                <p class="fac-desc">
+                    BMSCE's residential campus provides a secure, inclusive, and stimulating living environment for students from across India and abroad. Separate well-designed blocks for boys and girls offer modern furnishings, 24/7 Wi-Fi connectivity, purified drinking water, laundry services, and in-house recreation rooms. Nutritious, balanced meals are served three times daily in spacious dining halls, supporting physical well-being alongside academic rigor. Resident wardens and campus security ensure a safe atmosphere, while the vibrant hostel community fosters friendships, cultural exchange, and a sense of belonging that transforms a room into a home away from home.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">🏠 Separate Blocks</span>
+                    <span class="pill">📶 24/7 Wi-Fi</span>
+                    <span class="pill">🍽️ Dining Hall</span>
+                    <span class="pill">🔒 24/7 Security</span>
+                    <span class="pill">🎮 Recreation Room</span>
+                </div>
             </div>
         </div>
 
-        <!-- Library -->
-        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.2s;">
-            <div class="neon-tag">Knowledge Hub</div>
-            <div class="facility-img" style="background-image: url('library background.png');"></div>
-            <div class="facility-info">
-                <h3>BMSCE Central Library</h3>
-                <p>A massive collection of print and digital resources, research journals, and quiet study zones supported by advanced library management systems.</p>
-                <a href="facilities-library.html" class="facility-btn">Access Digital Repository →</a>
+        <!-- 3 · LIBRARY -->
+        <div class="fac-block reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">Knowledge Hub</span>
+                <img src="Bms Hospital/library.webp" alt="BMS Library">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">03</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">BMSCE Central <span>Library</span></h2>
+                <p class="fac-desc">
+                    The BMSCE Central Library is the intellectual cornerstone of the institution, housing an extensive collection of over 1,00,000 print volumes alongside thousands of e-books, international research journals, and online databases. Organised across multiple floors with dedicated reading zones, group discussion rooms, digital access terminals, and silent study halls, the library caters to every learning style. Powered by an automated library management system (KOHA), it enables seamless borrowing, reservations, and remote access to digital resources. The library regularly curates new arrivals in tune with curriculum requirements and emerging research trends, making it an indispensable resource for scholars to researchers alike.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">📚 1,00,000+ Books</span>
+                    <span class="pill">💻 Digital Terminals</span>
+                    <span class="pill">🔇 Silent Study Zone</span>
+                    <span class="pill">🗂️ KOHA LMS</span>
+                    <span class="pill">📰 Research Journals</span>
+                </div>
             </div>
         </div>
 
-        <!-- Data Centre -->
-        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.3s;">
-            <div class="neon-tag">Cyber Infrastructure</div>
-            <div class="facility-img" style="background-image: url('datacentresbackground.avif');"></div>
-            <div class="facility-info">
-                <h3>B S Narayan Data Centre</h3>
-                <p>Powering the institution with a 10Gbps high-speed backbone, NVIDIA DGX AI servers, and robust cloud services for research and e-governance.</p>
-                <a href="facilities-data.html" class="facility-btn">IT Services & Infrastructure →</a>
+        <!-- 4 · DATA CENTRE -->
+        <div class="fac-block reverse reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">Cyber Infrastructure</span>
+                <img src="Bms Hospital/TCE-Data-Center.jpg" alt="BMS Data Centre">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">04</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">B S Narayan <span>Data Centre</span></h2>
+                <p class="fac-desc">
+                    The B S Narayan Data Centre is the digital backbone of BMSCE, delivering enterprise-grade IT infrastructure to support research, e-governance, and academic operations across the campus. Anchored by NVIDIA DGX AI supercomputing servers and a blazing 10 Gbps internet backbone, the centre supports high-performance computing workloads, machine learning experiments, and cloud-based services at scale. A robust network of managed switches, blade servers, and redundant power systems ensures near-zero downtime. The centre also hosts the institution's ERP platform, CCTV surveillance infrastructure, and provides on-demand IT support, creating a seamlessly connected smart campus ecosystem.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">⚡ 10 Gbps Backbone</span>
+                    <span class="pill">🤖 NVIDIA DGX AI</span>
+                    <span class="pill">☁️ Cloud Services</span>
+                    <span class="pill">🖥️ ERP Platform</span>
+                    <span class="pill">🔐 Cybersecurity</span>
+                </div>
             </div>
         </div>
 
-        <!-- Sports -->
-        <div class="facility-card reveal-on-scroll" style="transition-delay: 0.4s;">
-            <div class="neon-tag">Excellence</div>
-            <div class="facility-img" style="background-image: url('bms_sports_stadium_premium.png');"></div>
-            <div class="facility-info">
-                <h3>BMSCE Sports & Stadium</h3>
-                <p>State-of-the-art multi-sport indoor stadium, high-tech gymnasium, and vast outdoor playgrounds promoting health and competitive sportsmanship.</p>
-                <a href="facilities-sports.html" class="facility-btn">Sports Achievements & Facilities →</a>
+        <!-- 5 · SPORTS -->
+        <div class="fac-block reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">Sports Excellence</span>
+                <img src="Bms Hospital/sports 1.jpg" alt="BMS Sports">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">05</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">BMSCE <span>Sports Complex</span></h2>
+                <p class="fac-desc">
+                    BMSCE's Sports Complex is a sprawling multi-discipline arena engineered to nurture athletic talent alongside academic excellence. The complex features an international-standard indoor stadium built for badminton, basketball, table tennis, and chess, complemented by an expansive outdoor ground accommodating cricket, football, athletics, and volleyball. A state-of-the-art gymnasium with modern cardio and strength training equipment supports physical fitness for all. Students regularly represent BMSCE at university, state, and national championships, with many alumni having competed at professional levels. Regular inter-departmental tournaments, yoga sessions, and coaching clinics keep the sporting culture vibrant year-round.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">🏸 Indoor Stadium</span>
+                    <span class="pill">🏋️ Gymnasium</span>
+                    <span class="pill">🏏 Cricket Ground</span>
+                    <span class="pill">⚽ Football Field</span>
+                    <span class="pill">🏆 National Level</span>
+                </div>
             </div>
         </div>
+
+        <!-- 6 · COUNSELLING -->
+        <div class="fac-block reverse reveal-on-scroll">
+            <div class="fac-img-wrap">
+                <span class="fac-tag">Student Wellness</span>
+                <img src="Bms Hospital/Counselling-Room.jpg" alt="BMSCE Counselling Centre">
+            </div>
+            <div class="fac-text">
+                <div class="fac-num">06</div>
+                <div class="fac-divider"></div>
+                <h2 class="fac-title">Student <span>Counselling Centre</span></h2>
+                <p class="fac-desc">
+                    Recognising that holistic education extends well beyond the classroom, BMSCE's dedicated Counselling Centre provides confidential, professional mental health and career guidance services to all students. Staffed by trained counsellors and psychologists, the centre offers one-on-one sessions addressing academic stress, exam anxiety, peer relationships, personal challenges, and career planning. Regular group workshops on mindfulness, stress management, time management, and interpersonal skills empower students with life skills that complement their technical education. The centre coordinates closely with the placement office, academic heads, and hostel wardens to create a seamlessly supportive campus environment where every student can thrive.
+                </p>
+                <div class="fac-pills">
+                    <span class="pill">🧠 Mental Health</span>
+                    <span class="pill">🤝 One-on-One Sessions</span>
+                    <span class="pill">📋 Career Guidance</span>
+                    <span class="pill">🧘 Mindfulness Workshops</span>
+                    <span class="pill">🔒 Confidential</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <footer><p>&copy; 2026 BMSCE Bengaluru. All Rights Reserved.</p></footer>
+    <footer><p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
-
