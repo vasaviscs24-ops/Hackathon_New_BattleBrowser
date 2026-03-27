@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Group of Institutions | BMSCE</title>
+    <meta name="description"
+        content="Discover the extensive BMS network of premier educational institutions ranging from Engineering and Architecture to Law and Science.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .partner-card {
+            background: rgba(3, 10, 20, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Stunning top border hover trace */
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* General card hover elevation */
+        .partner-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 242, 254, 0.15), inset 0 0 20px rgba(255,255,255,0.05);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        /* The custom logo placeholder initials */
+        .partner-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px auto;
+            background: linear-gradient(135deg, rgba(0,242,254,0.05), rgba(79,172,254,0.1));
+            border: 1px solid rgba(0,242,254,0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            box-shadow: inset 0 0 15px rgba(0,242,254,0.1), 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-card:hover .partner-icon-wrapper {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0,242,254,0.6);
+            transform: rotateY(360deg);
+            border-color: transparent;
+        }
+
+        .partner-title {
+            color: var(--text-main);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .partner-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- The majestic centered blurred logo background for all inner pages -->
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header" style="height: 50vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Our Group of Institutions</h1>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.25rem; line-height: 1.8;">
+                A phenomenal network of premier educational establishments continuously championing academic excellence, limitless innovation, and comprehensive societal growth.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 30px;">
+        <div class="partner-grid">
+
+            <!-- Card 1 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">CE</div>
+                <h3 class="partner-title">B.M.S. College of Engineering (BMSCE)</h3>
+                <p class="partner-desc">The immensely prestigious pioneer of private engineering education in India, shaping global leaders with elite pedagogy.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">IT</div>
+                <h3 class="partner-title">B.M.S. Institute of Technology (BMSIT)</h3>
+                <p class="partner-desc">Revolutionizing technological frontiers with state-of-the-art incubation centers and rigorous research.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">ECE</div>
+                <h3 class="partner-title">B.M.S. Evening College of Engineering</h3>
+                <p class="partner-desc">Empowering highly ambitious working professionals to exponentially accelerate their engineering careers.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">SA</div>
+                <h3 class="partner-title">B.M.S. School of Architecture (BMSSA)</h3>
+                <p class="partner-desc">Cultivating elite architectural visionaries capable of designing sustainable, hyper-modern urban environments.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">CA</div>
+                <h3 class="partner-title">B.M.S. College of Architecture (BMSCA)</h3>
+                <p class="partner-desc">An undisputed vanguard of spatial innovation and profoundly creative environmental design methodologies.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">CL</div>
+                <h3 class="partner-title">B.M.S. College of Law (BMSCL)</h3>
+                <p class="partner-desc">A formidable legal powerhouse producing highly ethical advocates and renowned judicial pioneers.</p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">CW</div>
+                <h3 class="partner-title">B.M.S. Degree College for Women (BMSCW)</h3>
+                <p class="partner-desc">Amplifying female excellence across comprehensive multidisciplinary sciences, intense commerce, and expansive arts.</p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">PUC</div>
+                <h3 class="partner-title">BMS P U College for Women</h3>
+                <p class="partner-desc">A critical foundational catalyst sparking intense intellectual curiosity and academic ambition in young women.</p>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">ASR</div>
+                <h3 class="partner-title">B.M.S. Academy of Science & Research</h3>
+                <p class="partner-desc">Unveiling paradigm-shifting scientific breakthroughs via rigorous, globally-connected deep research environments.</p>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">EDL</div>
+                <h3 class="partner-title">B.M.S. Centre for Executive Ed. & Distance Learning (BMSCEEDL)</h3>
+                <p class="partner-desc">Delivering uncompromised remote capabilities seamlessly transforming executive agility worldwide.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

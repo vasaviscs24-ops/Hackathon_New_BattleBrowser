@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions 2026-27 | BMSCE</title>
+    <meta name="description" content="Official admission portal for BMS College of Engineering. Find information on eligibility, fee structures, and management quota for 2026-27.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .notice-card {
+            background: linear-gradient(135deg, rgba(255, 62, 108, 0.1), rgba(0, 242, 254, 0.1));
+            border: 1px solid rgba(255, 62, 108, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            animation: pulse-border 2s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            from { border-color: rgba(255, 62, 108, 0.3); box-shadow: 0 0 10px rgba(255, 62, 108, 0.1); }
+            to { border-color: rgba(0, 242, 254, 0.5); box-shadow: 0 0 20px rgba(0, 242, 254, 0.2); }
+        }
+
+        .grid-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .admission-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            height: 100%;
+        }
+
+        .admission-section:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-cyan);
+        }
+
+        .admission-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .branch-item {
+            background: rgba(0, 242, 254, 0.05);
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .branch-item:hover {
+            background: rgba(0, 242, 254, 0.2);
+            transform: translateX(5px);
+            border-color: var(--primary-cyan);
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .fee-table th, .fee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .fee-table th {
+            color: var(--primary-cyan);
+            font-weight: 600;
+        }
+
+        .fee-row:hover {
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .contact-info-grid {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(0, 242, 254, 0.03);
+            border-radius: 30px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-group h3 {
+            margin-bottom: 15px;
+            color: var(--primary-cyan);
+        }
+
+        .warning-box {
+            background: rgba(255, 62, 108, 0.1);
+            border: 1px solid rgba(255, 62, 108, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            color: #ff9fb4;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(0.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .animated-campus-container {
+            animation: float 6s ease-in-out infinite;
+            cursor: pointer;
+            transition: box-shadow 0.6s ease;
+        }
+
+        .animated-campus-container:hover {
+            box-shadow: 0 40px 100px rgba(0, 242, 254, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Majestic centered blurred logo background -->
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html" class="active">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO (Matching About Page Structure) -->
+    <section class="about-header">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Admissions 2026-27</h1>
+            <p>Official Information Portal | First Private Engineering College in India</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT (Matching About and Life Page Structure) -->
+    <section class="about-content-section" style="padding-top: 50px; max-width: 1300px; margin: 0 auto; padding-bottom: 100px;">
+        
+        <div class="notice-card reveal-on-scroll">
+            <h2 style="color: #ff3e6c; margin-bottom: 15px;">📢 OFFICIAL NOTICE</h2>
+            <p style="font-size: 1.25rem; font-weight: 500; line-height: 1.6;">
+                Admissions for <strong>Management Quota</strong> seats are <strong>Opened</strong> for First Year B.E Courses for <strong>2026-27</strong> at B.M.S. College of Engineering.
+            </p>
+        </div>
+
+        <div class="grid-sections">
+            <!-- Programs Offered -->
+            <section class="admission-section reveal-on-scroll">
+                <div style="height: 200px; border-radius: 15px; overflow: hidden; margin-bottom: 25px;">
+                    <img src="entrance_exam_theme_1774542698880.png" alt="Engineering Entrance Exams" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h2 class="text-gradient">🎓 Four Years B.E. Programs</h2>
+                <div class="branch-grid">
+                    <div class="branch-item">CIVIL ENGINEERING</div>
+                    <div class="branch-item">MECHANICAL ENGINEERING</div>
+                    <div class="branch-item">ELECTRICAL & ELECTRONICS ENGINEERING</div>
+                    <div class="branch-item">ELECTRONICS & COMMUNICATION ENGINEERING</div>
+                    <div class="branch-item">INDUSTRIAL ENGINEERING & MANAGEMENT</div>
+                    <div class="branch-item">COMPUTER SCIENCE AND ENGINEERING</div>
+                    <div class="branch-item">BIO TECHNOLOGY</div>
+                    <div class="branch-item">CHEMICAL ENGINEERING</div>
+                    <div class="branch-item">ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING</div>
+                    <div class="branch-item">COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</div>
+                    <div class="branch-item">COMPUTER SCIENCE AND ENGINEERING (INTERNET OF THINGS AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY)</div>
+                    <div class="branch-item">ARTIFICIAL INTELLIGENCE (AI) AND DATA SCIENCE</div>
+                    <div class="branch-item">COMPUTER SCIENCE AND BUSINESS SYSTEMS</div>
+                </div>
+            </section>
+
+            <!-- Eligibility -->
+            <section class="admission-section reveal-on-scroll" style="transition-delay: 0.1s;">
+                <h2 class="text-gradient">📝 Academic Eligibility</h2>
+                
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--primary-cyan); font-size: 1.1rem; margin-bottom: 10px;">1. Through KEA / COMED-K</h3>
+                    <div style="font-size: 0.95rem; opacity: 0.85; line-height: 1.7;">
+                        <p><strong>FOR GENERAL MERIT CANDIDATES:</strong> Passed in 2nd PUC / 12 Std / Equivalent Examination with English as one of the Language and obtained a Minimum of 45% of Marks in aggregate in Physics and Mathematics as compulsory subjects along with Chemistry / Bio Technology / Biology / Computer Science / Electronics as optional subjects.</p>
+                        <br>
+                        <p><strong>FOR SC/ST & OBC (Cat-I, 2A, 2B, 3A 3B) CATEGORY:</strong> Passed in 2nd PUC / 12 Std / Equivalent Examination with English as one of the Language and obtained a Minimum of 40% of Marks in aggregate in Physics and Mathematics as compulsory subjects.</p>
+                        <br>
+                        <p><strong>Note:</strong> Marks in Biotechnology/Biology/Computer Science / Electronics will be considered in place of Chemistry if Chemistry marks are less.</p>
+                        <p><strong>Entrance Examination:</strong> KEA / COMED-K. For Management Admissions: Students must take any one Entrance Exam.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 0px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: var(--primary-cyan); font-size: 1.1rem; margin-bottom: 10px;">2. Through Lateral Entry Scheme</h3>
+                    <div style="font-size: 0.95rem; opacity: 0.85; line-height: 1.7;">
+                        <p>Passed Qualifying Examination (Diploma or equivalent) with minimum 45% (General) or 40% (SC/ST/BC of Karnataka) in all subjects of final year (5th & 6th Sem).</p>
+                        <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; margin-top: 15px; font-family: monospace; font-size: 0.85rem;">
+                            Aggregate % = (Sum of marks in 5th & 6th Sem X 100) / (Sum of maximum marks in 5th & 6th Sem)
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Management Quota Fees -->
+        <section class="admission-section reveal-on-scroll" style="margin-top: 40px; width: 100%;">
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; margin-bottom: 30px;">
+                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(0, 242, 254, 0.2);">
+                    <img src="institutional_administration_theme_1774542745226.png" alt="BMSCE Institutional Infrastructure" style="width: 100%; display: block;">
+                </div>
+                <div>
+                    <h2 class="text-gradient" style="margin-bottom: 15px;">💰 APPROVED MANAGEMENT FEE STRUCTURE</h2>
+                    <p style="opacity: 0.8; line-height: 1.6;">The following annual fee structure is applicable for candidates seeking admission under the Management Quota for the academic year 2026-27.</p>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name of the Branch</th>
+                            <th>Fee for 2026-27 (Rs. in Lakhs per annum)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fee-row"><td>1</td><td>Civil Engineering</td><td>6.0</td></tr>
+                        <tr class="fee-row"><td>2</td><td>Electrical & Electronics Engg.</td><td>6.0</td></tr>
+                        <tr class="fee-row"><td>3</td><td>Industrial Engineering & Mgmt</td><td>6.0</td></tr>
+                        <tr class="fee-row"><td>4</td><td>Electronics & Communication Engg.</td><td>9.0</td></tr>
+                        <tr class="fee-row"><td>5</td><td>Mechanical Engineering</td><td>6.0</td></tr>
+                        <tr class="fee-row"><td>6</td><td>Computer Science and Engineering</td><td>15.0</td></tr>
+                        <tr class="fee-row"><td>7</td><td>Chemical Engineering</td><td>4.0</td></tr>
+                        <tr class="fee-row"><td>8</td><td>Bio-Technology</td><td>7.0</td></tr>
+                        <tr class="fee-row"><td>9</td><td>Artificial Intelligence and Machine Learning</td><td>12.5</td></tr>
+                        <tr class="fee-row"><td>10</td><td>Artificial Intelligence and Data Science</td><td>12.0</td></tr>
+                        <tr class="fee-row"><td>11</td><td>Computer Science and Engineering (Data Science)</td><td>12.0</td></tr>
+                        <tr class="fee-row"><td>12</td><td>Computer Science and Engineering (IoT & Cyber Security including Blockchain Technology)</td><td>12.0</td></tr>
+                        <tr class="fee-row"><td>13</td><td>Computer Science & Business Systems</td><td>10.0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: rgba(0,0,0,0.2); border-radius: 20px;">
+                <h3 style="color: var(--primary-cyan); margin-bottom: 15px;">3. Through Management Quota - Eligibility Notes</h3>
+                <ul style="opacity: 0.85; line-height: 1.8; list-style-type: '⚡ '; padding-left: 20px;">
+                    <li><strong>Subjects:</strong> Physics & Mathematics (compulsory). Optional: Highest Marks in Chemistry/Biology/Bio-Tech/CS/Electronics.</li>
+                    <li><strong>Entrance Requirement:</strong> Qualifying in Entrance Exams conducted by CET/COMED-K/JEE Paper-I is MANDATORY.</li>
+                    <li><strong>Hostel:</strong> HOSTEL FEES IS EXTRA (Not included in the above fee structure).</li>
+                </ul>
+                <div class="warning-box">
+                    BMS EDUCATIONAL TRUST DOES NOT ENCOURAGE ADMISSIONS THROUGH AGENTS OR SUPPORT AGENTS.
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Payment -->
+        <section class="contact-info-grid reveal-on-scroll">
+            <div class="info-group">
+                <h3>📍 Contact Information</h3>
+                <p style="opacity: 0.9; line-height: 1.8;">
+                    <strong>Director (Admissions)</strong>, International Division,<br>
+                    Ground Floor, Platinum Jubilee Block,<br>
+                    BMSCE Campus, Basavanagudi, Bengaluru – 560 019
+                </p>
+                <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <p><strong>Counselling:</strong> Monday to Friday | 10:00 AM - 4:00 PM</p>
+                    <p style="color: #ff9fb4;">*Closed on Sundays, 2nd & 4th Saturdays, and Government Holidays.</p>
+                </div>
+            </div>
+            <div class="info-group">
+                <h3>📞 Official Channels</h3>
+                <p><strong>Direct Line:</strong> 080-26611636</p>
+                <p><strong>Official E-Mail:</strong> <a href="mailto:contact@bmsetadmission.org" style="color: var(--primary-cyan); text-decoration: none;">contact@bmsetadmission.org</a></p>
+                
+                <div style="margin-top: 30px;">
+                    <h4 style="color: var(--primary-cyan); margin-bottom: 10px;">💳 Payment Mode</h4>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        Demand Draft (DD) favoring <strong>"BMS Educational Trust"</strong> payable at Bengaluru.<br>
+                        <span style="color: #ff9fb4; font-weight: 600;">*Brought from the PARENT’S ACCOUNT ONLY.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPOSITIONED & DOWNSIZED IMAGE WITH RICH ANIMATIONS -->
+        <div class="reveal-on-scroll about-block animated-campus-container" style="margin: 80px auto; max-width: 850px; border-radius: 30px; overflow: hidden; border: 1px solid rgba(0, 242, 254, 0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.5); position: relative;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(0, 242, 254, 0.05), transparent); pointer-events: none;"></div>
+            <img src="Admissions/Screenshot 2026-03-26 220143.png" alt="BMSCE Campus" style="width: 100%; height: auto; display: block; filter: brightness(1.1) contrast(1.05); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+        </div>
+
+        <!-- DOWNLOAD BUTTON AT BOTTOM -->
+        <div class="reveal-on-scroll" style="text-align: center; margin-top: 60px;">
+            <a href="https://bmsce.ac.in/assets/files/Admission_document_and_process_flow.pdf" target="_blank" class="btn btn-glow" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; font-size: 1.1rem; border-radius: 50px;">
+                <span style="font-size: 1.5rem;">📥</span>
+                <span>Download Admission Process Flow PDF (2026-27)</span>
+            </a>
+            <p style="margin-top: 15px; opacity: 0.6; font-size: 0.9rem;">Official Document and Procedure Details</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

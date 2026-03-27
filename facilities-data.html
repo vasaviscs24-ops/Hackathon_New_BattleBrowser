@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Centre | BMSCE Facilities</title>
+    <meta name="description" content="Core IT infrastructure and network services at BMSCE.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('datacentresbackground.avif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            color: #030a14;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 245, 255, 0.95) 100%);
+            backdrop-filter: blur(8px);
+            z-index: -1;
+        }
+
+        .facility-content {
+            padding: 160px 8% 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .data-hero-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 80px 50px;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            border-top: 5px solid #004b93;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .service-slab {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 40px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .service-slab:hover { transform: translateY(-10px); border-color: #004b93; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        .slab-img {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid #004b93;
+        }
+
+        .slab-text { padding: 40px; }
+        .slab-text h2 { color: #004b93; margin-bottom: 20px; font-size: 1.8rem; }
+        .slab-text p { color: #555; line-height: 1.7; margin-bottom: 20px; }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .spec-list li span { color: #004b93; font-weight: 700; }
+
+        @media (max-width: 992px) {
+            .data-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img" style="filter: invert(1);">
+            <div class="logo-text" style="color: #030a14;">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" style="color: #333;">Home</a></li>
+            <li><a href="facilities-hospital.html" class="active" style="color: #004b93;">Facilities</a></li>
+            <li><a href="admissions.html" style="color: #333;">Admissions</a></li>
+        </ul>
+    </header>
+
+    <div class="facility-content">
+        
+        <div class="data-hero-card reveal-on-scroll">
+            <h1 style="font-size: 4rem; color: #030a14; margin-bottom: 15px;">BMSCE Data Centre</h1>
+            <p style="color: #004b93; font-size: 1.2rem; letter-spacing: 5px; font-weight: 700; text-transform: uppercase;">Digital Backbone</p>
+        </div>
+
+        <div class="data-grid reveal-on-scroll">
+            
+            <div class="service-slab">
+                <div class="slab-img" style="background-image: url('datacentresbackground.avif');"></div>
+                <div class="slab-text">
+                    <h2>Server Hub</h2>
+                    <p>Maintaining institutional high-availability clusters for secure ERP and academic data transactions.</p>
+                    <ul class="spec-list">
+                        <li>Uptime <span>99.9%</span></li>
+                        <li>Backups <span>Daily</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-slab">
+                <div class="slab-img" style="background-image: url('About Page/E-governance/Screenshot 2026-03-26 144754.png');"></div>
+                <div class="slab-text">
+                    <h2>Network Operations</h2>
+                    <p>Managing the campus fiber ring and secure WiFi mesh for seamless instructional delivery.</p>
+                    <ul class="spec-list">
+                        <li>Bandwidth <span>10Gbps</span></li>
+                        <li>Security <span>Firewall V2</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-slab">
+                <div class="slab-text">
+                    <h2>Institutional Licensing</h2>
+                    <p>Managed distribution of software ecosystems including MATLAB, Microsoft 365, and engineering design tools.</p>
+                    <ul class="spec-list">
+                        <li>Ecosystem <span>Microsoft</span></li>
+                        <li>Compute <span>CUDA Enabled</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-slab">
+                <div class="slab-text">
+                    <h2>Disaster Recovery</h2>
+                    <p>Ensuring institutional business continuity through synchronized off-site replication and data snapshots.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer style="background: #f8faff; padding: 60px 8%; border-top: 1px solid rgba(0,0,0,0.05); text-align: center;">
+        <p style="color: #555;">&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

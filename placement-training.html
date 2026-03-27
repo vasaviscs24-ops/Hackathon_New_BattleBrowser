@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Training | BMSCE</title>
+    <meta name="description"
+        content="Comprehensive placement training programmes at BMSCE including technical, aptitude, soft skills, and communication development.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .bento-card {
+            background: #0a121e;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.1);
+        }
+
+        /* Bento Span Variations */
+        .span-2 { grid-column: span 2; }
+        @media (max-width: 900px) { .span-2 { grid-column: span 1; } }
+
+        .bento-icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 25px;
+        }
+
+        .bento-card:hover .bento-icon-box {
+            background: var(--accent-cyan);
+            color: #030A14;
+            transform: scale(1.1);
+        }
+
+        .bento-title {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .bento-desc {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .bento-meta {
+            margin-top: auto;
+            padding-top: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .skill-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-item::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+        }
+
+        .hub-banner {
+            background: linear-gradient(135deg, #0a121e 0%, #030A14 100%);
+            border: 1px solid var(--accent-cyan);
+            padding: 50px;
+            border-radius: 30px;
+            margin-top: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hub-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        /* Stats Gallery - Non-Glass, Non-Bento */
+        .stats-section {
+            padding: 80px 0;
+            background: #030A14;
+        }
+
+        .stats-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .stats-item {
+            background: #0a121e;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.4s ease, transform 0.4s ease;
+        }
+
+        .stats-item:hover {
+            border-color: var(--accent-cyan);
+            transform: scale(1.01);
+        }
+
+        .stats-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .stats-caption {
+            text-align: center;
+            margin-top: 20px;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="about-page">
+    <div class="about-brand-bg"></div>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html" class="active">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html" class="active">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <section class="about-header" style="height: 50vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Placement Training</h1>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.25rem; line-height: 1.8;">
+                Empowering students with a 40-hour rigorous transformation programme focusing on technical excellence, analytical rigor, and professional finesse.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-content-section" style="padding-top: 30px;">
+        <h2 class="text-gradient reveal-on-scroll" style="text-align: center; margin-bottom: 40px; font-size: 3.5rem;">Training Methodology</h2>
+        <div class="bento-grid">
+            <!-- methodology cards -->
+            <div class="bento-card span-2 reveal-on-scroll">
+                <div class="bento-icon-box">AT</div>
+                <h3 class="bento-title">Aptitude Test Mastery</h3>
+                <p class="bento-desc">A deep dive into the fundamental pillars of recruitment exams. We focus on enhancing speed and accuracy through intensive classroom exercises covers all concepts required for successful placement clears.</p>
+                <div class="skill-group" style="margin-bottom: 20px;">
+                    <div class="skill-item">Logical Ability & Puzzles</div>
+                    <div class="skill-item">Analytical Reasoning</div>
+                    <div class="skill-item">Quantitative Aptitude</div>
+                    <div class="skill-item">Data Interpretation (DI)</div>
+                    <div class="skill-item">Mental Math Shortcuts</div>
+                    <div class="skill-item">Speed-Accuracy Tradeoff</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">10 Hours Intensive</span>
+                    <span class="meta-tag">Target: Aptitude Clearance</span>
+                    <span class="meta-tag">Classroom Exercises</span>
+                </div>
+            </div>
+
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">GD</div>
+                <h3 class="bento-title">Group Discussion</h3>
+                <p class="bento-desc">Comprehensive guide to interpersonal dynamics, etiquettes, and thought process optimization.</p>
+                <div class="skill-group" style="grid-template-columns: 1fr; margin-bottom: 15px;">
+                    <div class="skill-item">Dynamics of Group Discussions</div>
+                    <div class="skill-item">GD Etiquettes & Body Language</div>
+                    <div class="skill-item">Current Topics & Abstract Ideas</div>
+                    <div class="skill-item">Value Addition Techniques</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">5 Hours</span>
+                    <span class="meta-tag">Effective Speech</span>
+                </div>
+            </div>
+
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">RB</div>
+                <h3 class="bento-title">Resume 101</h3>
+                <p class="bento-desc">Hands-on resume writing lab ensuring every student leaves with a professional profile.</p>
+                <div class="skill-group" style="grid-template-columns: 1fr; margin-bottom: 15px;">
+                    <div class="skill-item">Resume Writing Fundamentals</div>
+                    <div class="skill-item">ATS Optimization (Keywords)</div>
+                    <div class="skill-item">Personal Branding Section</div>
+                    <div class="skill-item">One-on-One Profile Review</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">4 Hours Lab</span>
+                    <span class="meta-tag">Self-Made Profiles</span>
+                </div>
+            </div>
+
+            <div class="bento-card span-2 reveal-on-scroll">
+                <div class="bento-icon-box">PI</div>
+                <h3 class="bento-title">Personal Interview Strategy</h3>
+                <p class="bento-desc">One-on-one sessions providing a 99% actual interview perspective. Learn the art of 'Selling Yourself' through answering strategies and rapport building.</p>
+                <div class="skill-group" style="margin-bottom: 20px;">
+                    <div class="skill-item">Interview F.A.Q's & Drills</div>
+                    <div class="skill-item">Question Prediction Logic</div>
+                    <div class="skill-item">Rapport Building Skills</div>
+                    <div class="skill-item">Role-Play & Simulations</div>
+                    <div class="skill-item">Body Language Analysis</div>
+                    <div class="skill-item">Closing & Follow-up</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">6 Hours Simulation</span>
+                    <span class="meta-tag">1% Simulation Experience</span>
+                    <span class="meta-tag">Selling Yourself</span>
+                </div>
+            </div>
+
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">ISO</div>
+                <h3 class="bento-title">Industry Orientation</h3>
+                <p class="bento-desc">Bridging the academic-corporate divide with specific orientation programs.</p>
+                <div class="skill-group" style="grid-template-columns: 1fr; margin-bottom: 15px;">
+                    <div class="skill-item">Corporate Culture Awareness</div>
+                    <div class="skill-item">Sector-Specific Requirements</div>
+                    <div class="skill-item">Workflow & Professionalism</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">9 Hours Orientation</span>
+                </div>
+            </div>
+
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">BCC</div>
+                <h3 class="bento-title">Business Case Competition</h3>
+                <p class="bento-desc">Real-world simulations of business challenges to test capabilities.</p>
+                <div class="skill-group" style="grid-template-columns: 1fr; margin-bottom: 15px;">
+                    <div class="skill-item">Case Study Analysis</div>
+                    <div class="skill-item">Strategic Problem Solving</div>
+                    <div class="skill-item">Presentation & Pitching</div>
+                </div>
+                <div class="bento-meta">
+                    <span class="meta-tag">6 Hours Strategy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hub-banner reveal-on-scroll">
+            <h3 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">TOTAL 40 HOURS PILOT COURSE</h3>
+            <p style="color: #94a3b8; font-size: 1.2rem;">An intensive 5-day transformation journey for placement readiness.</p>
+        </div>
+
+        <!-- Skill Development Section -->
+        <h2 class="text-gradient reveal-on-scroll" style="text-align: center; margin-top: 100px; margin-bottom: 40px; font-size: 3rem;">Skill Development Pillars</h2>
+        <div class="bento-grid">
+            <!-- Technical Skills -->
+            <div class="bento-card span-2 reveal-on-scroll">
+                <div class="bento-icon-box">TS</div>
+                <h3 class="bento-title">Technical Mastery</h3>
+                <p class="bento-desc">Core engineering and digital transformation skills required for high-tech recruitment.</p>
+                <div class="skill-group">
+                    <div class="skill-item">C, C++, Java</div>
+                    <div class="skill-item">Python, AI/ML</div>
+                    <div class="skill-item">Design Thinking</div>
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Robotics & IOT</div>
+                    <div class="skill-item">Database & Hadoop</div>
+                    <div class="skill-item">Data Structures</div>
+                    <div class="skill-item">Algorithms</div>
+                </div>
+            </div>
+
+            <!-- Aptitude -->
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">AP</div>
+                <h3 class="bento-title">Aptitude & Logic</h3>
+                <div class="skill-group" style="grid-template-columns: 1fr;">
+                    <div class="skill-item">Number Property & Factorials</div>
+                    <div class="skill-item">Probability & Statistics</div>
+                    <div class="skill-item">Time, Work & Distance</div>
+                    <div class="skill-item">Algebra & Trigonometry</div>
+                    <div class="skill-item">Logical Reasoning & Coding</div>
+                    <div class="skill-item">Clocks & Calendars</div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">SS</div>
+                <h3 class="bento-title">Soft Skills</h3>
+                <div class="skill-group" style="grid-template-columns: 1fr;">
+                    <div class="skill-item">Grooming & Professional Etiquette</div>
+                    <div class="skill-item">Goal Setting & Vision Boarding</div>
+                    <div class="skill-item">Leadership & Public Speaking</div>
+                    <div class="skill-item">Team Building & Collaboration</div>
+                    <div class="skill-item">Stress & Time Management</div>
+                    <div class="skill-item">Career Planning & Ethics</div>
+                </div>
+            </div>
+
+            <!-- Communication -->
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">CS</div>
+                <h3 class="bento-title">Communication</h3>
+                <div class="skill-group" style="grid-template-columns: 1fr;">
+                    <div class="skill-item">Advanced Grammar & Vocabulary</div>
+                    <div class="skill-item">Reading & Listening Comprehension</div>
+                    <div class="skill-item">Business Writing & Reports</div>
+                    <div class="skill-item">Tactical Speaking & Social Skills</div>
+                </div>
+            </div>
+
+            <!-- Digital Skills -->
+            <div class="bento-card reveal-on-scroll">
+                <div class="bento-icon-box">DS</div>
+                <h3 class="bento-title">Digital Profeciency</h3>
+                <div class="skill-group" style="grid-template-columns: 1fr;">
+                    <div class="skill-item">MS Word & PowerPoint Mastery</div>
+                    <div class="skill-item">MS Excel (Level 1, 2, 3)</div>
+                    <div class="skill-item">Digital Marketing & SEO Basics</div>
+                    <div class="skill-item">Data Analysis & Social Media</div>
+                </div>
+            </div>
+
+            <!-- Talent Hub -->
+            <div class="bento-card span-2 reveal-on-scroll" style="background: linear-gradient(135deg, #0a121e 0%, #030A14 100%); border: 1px solid var(--accent-cyan);">
+                <div class="bento-icon-box">TH</div>
+                <h3 class="bento-title">Talent Transformation Hub</h3>
+                <p class="bento-desc">Experience immersive situational interactions to identify your strengths and increase your employability factor for a distinct competitive advantage in the global market.</p>
+                <div class="bento-meta">
+                    <span class="meta-tag">Self-Learning</span>
+                    <span class="meta-tag">Situational Interaction</span>
+                    <span class="meta-tag">Employability Advantage</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placement Statistics Section -->
+        <div class="stats-section">
+            <h2 class="text-gradient reveal-on-scroll" style="text-align: center; margin-bottom: 40px; font-size: 3.5rem;">Placement Statistics</h2>
+            <div class="stats-gallery">
+                <div class="stats-item reveal-on-scroll">
+                    <img src="placementstats1.png" alt="Placement Statistics 1">
+                </div>
+                <div class="stats-caption reveal-on-scroll">Comparative Analysis & Recruitment Trends</div>
+
+                <div class="stats-item reveal-on-scroll">
+                    <img src="placementstats2.png" alt="Placement Statistics 2">
+                </div>
+                <div class="stats-caption reveal-on-scroll">Departmental Performance & Offer Distribution</div>
+
+                <div class="stats-item reveal-on-scroll">
+                    <img src="Placementstats3.png" alt="Placement Statistics 3">
+                </div>
+                <div class="stats-caption reveal-on-scroll">Corporate Partner Growth & Salary Benchmarks</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

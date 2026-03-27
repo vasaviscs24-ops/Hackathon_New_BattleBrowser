@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Placements | BMSCE</title>
+    <meta name="description" content="Explore the Placement Centre at BMSCE - Bridging the gap between academia and industry excellence.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .partner-card {
+            background: rgba(3, 10, 20, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Stunning top border hover trace */
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* General card hover elevation */
+        .partner-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 242, 254, 0.15), inset 0 0 20px rgba(255,255,255,0.05);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        /* The custom logo placeholder initials */
+        .partner-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px auto;
+            background: linear-gradient(135deg, rgba(0,242,254,0.05), rgba(79,172,254,0.1));
+            border: 1px solid rgba(0,242,254,0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            box-shadow: inset 0 0 15px rgba(0,242,254,0.1), 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-card:hover .partner-icon-wrapper {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0,242,254,0.6);
+            transform: rotateY(360deg);
+            border-color: transparent;
+        }
+
+        .partner-title {
+            color: var(--text-main);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .partner-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Profile Specific Styles */
+        .profile-photo-wrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-cyan);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .profile-photo-wrapper img {
+            width: 100%;
+            height: 300%;
+            object-fit: cover;
+        }
+
+        .photo-1 img { object-position: center 0%; }
+        .photo-2 img { object-position: center 50%; }
+        .photo-3 img { object-position: center 100%; }
+
+        .message-box {
+            text-align: center;
+        }
+
+        .staff-details {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .staff-details strong {
+            color: var(--accent-cyan);
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body class="about-page">
+    <div class="about-brand-bg"></div>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html" class="active">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html" class="active">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <section class="about-header" style="height: 50vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">About Placements</h1>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.25rem; line-height: 1.8;">
+                Bridging the gap between academia and industry excellence through student-centric initiatives and robust corporate linkages.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-content-section" style="padding-top: 30px;">
+        <div class="partner-grid">
+            <!-- Intro Card -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">PC</div>
+                <h3 class="partner-title">Placements Cell</h3>
+                <p class="partner-desc">The institution firmly believes that placements are the major benchmark. Started in 1995, we have achieved 18500+ cumulative offers.</p>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">V</div>
+                <h3 class="partner-title">Vision</h3>
+                <p class="partner-desc">To emerge as a most preferred destination for all corporates to hire globally competent and ethically strong engineering talent.</p>
+            </div>
+
+            <!-- Mission Card -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">M</div>
+                <h3 class="partner-title">Mission</h3>
+                <p class="partner-desc">Nurture talent, identify career options, enhance employability, and facilitate futuristic skills acquisition.</p>
+            </div>
+
+            <!-- Infrastructure Card -->
+            <div class="partner-card reveal-on-scroll">
+                <div class="partner-icon-wrapper">IT</div>
+                <h3 class="partner-title">Infrastructure & Training</h3>
+                <p class="partner-desc">State-of-the-art physical and computing infrastructure. Soft-skills training, technical talks, and mock assessments.</p>
+            </div>
+        </div>
+
+        <!-- Placement Process -->
+        <div style="margin-top: 80px;">
+            <h2 class="text-gradient reveal-on-scroll" style="text-align: center; font-size: 3rem; margin-bottom: 40px;">Placement Process</h2>
+            <div class="partner-grid">
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-icon-wrapper">1</div>
+                    <h3 class="partner-title">Network & Invitation</h3>
+                    <p class="partner-desc">Establishing networks and building relations with potential recruiters. Invitations are sent to visit the Institute.</p>
+                </div>
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-icon-wrapper">2</div>
+                    <h3 class="partner-title">Coordination</h3>
+                    <p class="partner-desc">Dates for campus visits are communicated considering factors like student preference and job profiles.</p>
+                </div>
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-icon-wrapper">3</div>
+                    <h3 class="partner-title">Pre-Placement Talks</h3>
+                    <p class="partner-desc">Companies are encouraged to give presentations before the commencement of the recruitment process.</p>
+                </div>
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-icon-wrapper">4</div>
+                    <h3 class="partner-title">Selection Process</h3>
+                    <p class="partner-desc">Recruiters conduct aptitude tests, group discussions, technical and HR interviews to identify top talent.</p>
+                </div>
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-icon-wrapper">5</div>
+                    <h3 class="partner-title">Administrative Activities</h3>
+                    <p class="partner-desc">Conducting general follow-up, joining formalities and administrative coordination for selected students.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership Messages -->
+        <div style="margin-top: 80px;">
+            <h2 class="text-gradient reveal-on-scroll" style="text-align: center; font-size: 3rem; margin-bottom: 40px;">Leadership Spotlight</h2>
+            <div class="partner-grid">
+                <!-- Dean -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="profile-photo-wrapper photo-1">
+                        <img src="placement_cell.png" alt="Dean">
+                    </div>
+                    <h3 class="partner-title">Dean's Message</h3>
+                    <p class="partner-desc">"B.M.S.C.E has been promoting quality engineering education over the past seven decades. We focus on maximising career prospects."</p>
+                    <div class="staff-details">
+                        <strong>Dr. J. Sharana Basavaraja</strong>
+                        Professor & Dean, Placement
+                    </div>
+                </div>
+
+                <!-- Assoc 1 -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="profile-photo-wrapper photo-2">
+                        <img src="placement_cell.png" alt="Associate Placement Officer">
+                    </div>
+                    <h3 class="partner-title">Associate Placement Officer</h3>
+                    <p class="partner-desc">"The Training & Placement Centre equips its students with skills that will help them contribute almost immediately to organizations."</p>
+                    <div class="staff-details">
+                        <strong>Dr. K.R. Sudhindra</strong>
+                        Professor & Assoc. Placement Officer
+                    </div>
+                </div>
+
+                <!-- Assoc 2 -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="profile-photo-wrapper photo-3">
+                        <img src="placement_cell.png" alt="Associate Placement Officer">
+                    </div>
+                    <h3 class="partner-title">Associate Placement Officer</h3>
+                    <p class="partner-desc">"We are confident that recruiters looking for talented pool of people will be greeted with young, bright and aspiring minds."</p>
+                    <div class="staff-details">
+                        <strong>Dr. Nandhini Vineeth</strong>
+                        Professor & Assoc. Placement Officer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

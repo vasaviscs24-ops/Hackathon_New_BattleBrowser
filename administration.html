@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration | B.M.S. College of Engineering</title>
+    <meta name="description"
+        content="BMSCE Administration - The backbone of the institution relentlessly orchestrating its premier operations.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-img-card {
+            background: rgba(3, 10, 20, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .admin-img-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .admin-img-wrapper::after {
+            content:'';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .admin-img {
+            max-width: 100%;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .admin-img-wrapper:hover .admin-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html" class="active">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header" style="height: 45vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Administration</h1>
+            <p style="color: var(--text-muted); font-weight: 300; font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                The central backbone of B.M.S. College of Engineering, relentlessly committed to orchestrating operations with absolute precision and unyielding integrity.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 20px; text-align: center;">
+        <div class="about-grid">
+            
+            <div class="reveal-on-scroll">
+                <div class="admin-img-card">
+                    <div class="admin-img-wrapper">
+                        <img src="About Page/Administration/Screenshot 2026-03-26 144551.png" alt="BMSCE Administration" class="admin-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-block reveal-on-scroll" style="margin-top: 20px; max-width: 900px; margin-inline: auto;">
+                <h2 class="text-gradient" style="font-size: 2.2rem;">Commitment to Operational Excellence</h2>
+                <p>
+                    Guided by the deeply ingrained principles and historic legacy of our founders, the administration continuously fosters an environment of absolute transparency, agility, and empowerment. By relentlessly adopting highly effective quality controls, the institution proudly ensures its status among the supreme echelon of technical educational establishments globally.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

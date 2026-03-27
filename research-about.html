@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Development | BMSCE</title>
+    <meta name="description" content="Explore Research & Development at BMSCE. Led by Dr. Chandasree Das, our R&D center promotes innovation, multidisciplinary projects, and Propel Labs for students.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .research-stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .research-stats-table th, .research-stats-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .research-stats-table th {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .research-stats-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .research-stats-table tr:last-child {
+            background: rgba(0, 242, 254, 0.05);
+            font-weight: 700;
+            color: var(--primary-cyan);
+        }
+
+        .lead-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .lead-photo-container {
+            border-radius: 30px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 4/5;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .lead-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .propel-labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .propel-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .propel-card:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-5px);
+            background: rgba(0, 242, 254, 0.02);
+        }
+
+        /* Innovative Labs Circular Reveal Style */
+        .innovative-labs-section {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+
+        .labs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .lab-card {
+            position: relative;
+            height: 350px;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #030a14;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .lab-card:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .lab-card-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px) brightness(0.4);
+            transition: filter 0.6s ease;
+            z-index: 1;
+        }
+
+        .lab-card:hover .lab-card-bg {
+            filter: blur(2px) brightness(0.5);
+        }
+
+        .lab-card-initial {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            padding: 20px;
+            text-align: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .lab-card-initial h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lab-card-initial .lab-tag {
+            background: rgba(0, 242, 254, 0.2);
+            color: var(--primary-cyan);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* The Reveal Layer */
+        .lab-reveal-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 5;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            clip-path: circle(0% at center);
+            transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-cyan) transparent;
+        }
+
+        .lab-card.active .lab-reveal-layer {
+            clip-path: circle(150% at center);
+        }
+
+        .lab-reveal-layer h4 {
+            color: var(--primary-cyan);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .lab-info-item {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .lab-info-item strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .lab-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .lab-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .lab-close-btn:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .lead-section {
+                grid-template-columns: 1fr;
+            }
+            .lead-photo-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                    <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html" class="active">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Research & Development</h1>
+            <p>Fostering Innovation, Discovery, and Technological Excellence</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 60px; max-width: 1200px; margin: 0 auto; padding-bottom: 100px;">
+        
+        <!-- Leadership Spotlight -->
+        <div class="lead-section reveal-on-scroll">
+            <div class="lead-photo-container">
+                <!-- Official Photo for Dr. Chandasree Das -->
+                <img src="Research/researchhead.png" alt="Dr. Chandasree Das">
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); text-align: center;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">Dr. Chandasree Das</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary-cyan);">Head, R & D</p>
+                </div>
+            </div>
+            <div class="lead-content">
+                <h2 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 25px;">Visionary Leadership</h2>
+                <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.9; margin-bottom: 20px;">
+                    The Research & Development Centre at BMSCE is the primary catalyst for identifying emerging research frontiers and developing high-impact projects. Led by <strong>Dr. Chandasree Das</strong>, the centre orchestrates a vibrant ecosystem where faculty and students collaborate to push the boundaries of National and International scientific inquiry.
+                </p>
+                <p style="line-height: 1.8; opacity: 0.8;">
+                    Established at the institutional level to promote deep-tech innovation, the centre serves as a critical liaison between regulatory universities and the diverse research clusters at BMSCE. From patent filing to facilitating international peer-reviewed publications, the R&D Centre ensures every scientific outcome is nurtured towards global recognition.
+                </p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="https://bmsce.irins.org/" target="_blank" class="btn btn-glow" style="padding: 15px 30px; display: inline-flex; align-items: center; gap: 10px;">
+                        <span>🌐 Explore IRINS Research Portal</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Innovative Labs Redirect CTA -->
+        <div class="about-block reveal-on-scroll" style="margin-top: 80px; padding: 60px; text-align: center; border: 2px dashed rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.05); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2), transparent); filter: blur(40px);"></div>
+            <h2 class="text-gradient" style="font-size: 2.8rem; margin-bottom: 20px;">Explore Innovative Labs</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted); max-width: 700px; margin-inline: auto;">
+                Dive into our specialized multidisciplinary design centers. Experience the future of robotics, 3D printing, and automotive engineering.
+            </p>
+            <a href="research-labs.html" class="btn btn-glow" style="padding: 20px 60px; font-size: 1.1rem; border-radius: 50px;">
+                Enter Innovation Portal
+            </a>
+        </div>
+
+        <!-- Propel Labs Section (Intro) -->
+        <div class="about-block reveal-on-scroll" style="margin-top: 60px; padding: 50px; background: rgba(0, 242, 254, 0.03); border-radius: 30px; border: 1px solid rgba(0, 242, 254, 0.2);">
+            <h2 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">Propel Labs: Nurturing Innovation</h2>
+            <p style="text-align: center; max-width: 900px; margin: 0 auto; line-height: 1.8; opacity: 0.85;">
+                Since obtaining academic autonomy, BMSCE has pioneered a curriculum that foregrounds research from the very first year. Our <strong>Propel Labs</strong> are centralized, multidisciplinary design centers where students of all disciplines work on engineering prototypes without barriers.
+            </p>
+            
+            <div class="propel-labs-grid">
+                <div class="propel-card">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 15px;">🚀 Multidisciplinary Approach</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Broad-based facilities not confined to a single discipline, encouraging cross-pollination of ideas across departments.</p>
+                </div>
+                <div class="propel-card">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 15px;">🛠️ Prototyping Excellence</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">From conceptual design to functional engineering prototypes, students are mentored to build products for global competitions.</p>
+                </div>
+                <div class="propel-card">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 15px;">🧠 Expert Mentorship</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Headed by expert faculty and supported by technical staff who volunteer as mentors to guide creative thinking.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Table -->
+        <div style="margin-top: 100px;" class="reveal-on-scroll">
+            <h2 class="text-gradient" style="font-size: 2.2rem; margin-bottom: 30px; text-align: center;">Research Center Statistics</h2>
+            <div style="overflow-x: auto;">
+                <table class="research-stats-table">
+                    <thead>
+                        <tr>
+                            <th>Sl. No</th>
+                            <th>Research Center (Year of estb.)</th>
+                            <th>No. of Guides</th>
+                            <th>Ph.D Registered</th>
+                            <th>Ph.D Awarded</th>
+                            <th>M.Sc Awarded</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Civil Engineering (2002)</td><td>24</td><td>64</td><td>33</td><td>14</td></tr>
+                        <tr><td>2</td><td>Mechanical Engineering (2002)</td><td>34</td><td>34</td><td>34</td><td>2</td></tr>
+                        <tr><td>3</td><td>Electrical and Electronics Engineering (2002)</td><td>15</td><td>27</td><td>13</td><td>0</td></tr>
+                        <tr><td>4</td><td>Electronics and Communication Engineering (2002)</td><td>24</td><td>69</td><td>22</td><td>1</td></tr>
+                        <tr><td>5</td><td>Industrial Engineering and Management (2002)</td><td>3</td><td>8</td><td>3</td><td>2</td></tr>
+                        <tr><td>6</td><td>Chemical Engineering (2004)</td><td>5</td><td>4</td><td>4</td><td>1</td></tr>
+                        <tr><td>7</td><td>Mathematics (2004)</td><td>11</td><td>18</td><td>5</td><td>0</td></tr>
+                        <tr><td>8</td><td>MBA (2004)</td><td>8</td><td>25</td><td>19</td><td>0</td></tr>
+                        <tr><td>9</td><td>Biotechnology (2009)</td><td>6</td><td>4</td><td>5</td><td>2</td></tr>
+                        <tr><td>10</td><td>Computer Science and Engineering (2010)</td><td>13</td><td>34</td><td>20</td><td>0</td></tr>
+                        <tr><td>11</td><td>Information Science and Engineering (2011)</td><td>9</td><td>22</td><td>6</td><td>0</td></tr>
+                        <tr><td>12</td><td>Physics (2011)</td><td>6</td><td>7</td><td>4</td><td>0</td></tr>
+                        <tr><td>13</td><td>Chemistry (2011)</td><td>8</td><td>10</td><td>7</td><td>0</td></tr>
+                        <tr><td>14</td><td>Electronics & Telecommunication Engineering (2013)</td><td>6</td><td>9</td><td>1</td><td>0</td></tr>
+                        <tr><td></td><td><strong>TOTAL</strong></td><td><strong>172</strong></td><td><strong>335</strong></td><td><strong>176</strong></td><td><strong>22</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleLab(card) {
+            // Close other labs if open
+            document.querySelectorAll('.lab-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            // Toggle current lab
+            card.classList.toggle('active');
+        }
+
+        // Prevent click on close button from bubbling up
+        document.querySelectorAll('.lab-close-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.closest('.lab-card').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+

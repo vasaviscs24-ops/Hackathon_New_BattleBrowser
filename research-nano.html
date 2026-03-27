@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano-Materials & Displays | BMSCE Research</title>
+    <meta name="description" content="B S Narayan Centre for Nano-Materials & Displays (CND) at BMSCE. Exploring the future of displays and porous nanomaterials.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Precision Research Theme */
+        body {
+            background: #001128; /* NoteGo Navy */
+            margin: 0;
+            overflow-x: hidden;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Vanta Background Container */
+        #vanta-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #cinematic-wrapper {
+            background: rgba(0, 17, 40, 0.4); /* Darker overlay for better text contrast */
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Research Hero Section */
+        .nano-hero {
+            padding: 180px 10% 60px;
+            text-align: center;
+        }
+
+        .nano-hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #00f2fe 0%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 950;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            max-width: 950px;
+            margin: 0 auto;
+            color: #FFFFFF;
+            line-height: 1.8;
+            font-size: 1.3rem;
+            font-weight: 400;
+            background: rgba(3, 10, 20, 0.8); /* Solid-ish background for visibility */
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Dossier Sections - High Visibility Glass */
+        .dossier-grid {
+            padding: 80px 10% 120px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .dossier-card {
+            background: rgba(3, 10, 20, 0.85); /* Dark background for white text */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 50px;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            color: #FFFFFF;
+        }
+
+        .dossier-card:hover {
+            transform: translateY(-10px);
+            border-color: #00f2fe;
+            box-shadow: 0 30px 60px rgba(0, 242, 254, 0.2);
+        }
+
+        .dossier-card h3 {
+            font-size: 1.8rem;
+            color: #00f2fe;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 800;
+        }
+
+        /* Lab Images Section - ENTIRE Picture No Cutting */
+        .lab-showcase {
+            padding: 0 10% 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .showcase-card {
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain; /* ENTIRE PICTURE */
+            display: block;
+            border-radius: 20px;
+        }
+
+        .showcase-label {
+            padding: 20px;
+            text-align: center;
+            color: #00f2fe;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .dossier-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dossier-card li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #E2E8F0;
+        }
+
+        .dossier-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Showcase Styling */
+        .lab-showcase {
+            padding: 0 10% 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .showcase-card {
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            height: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(3, 10, 20, 0.95));
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .nano-hero h1 { font-size: 3rem; }
+            .dossier-grid { grid-template-columns: 1fr; }
+            .lab-showcase { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-canvas"></div>
+
+    <div id="cinematic-wrapper">
+        <header id="navbar">
+            <div class="logo-container">
+                <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+                <div class="logo-text">BMSCE</div>
+            </div>
+                    <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html" class="active">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+        </header>
+
+        <section class="nano-hero">
+            <h1>B S Narayan Centre for Nano-Materials & Displays</h1>
+            <div class="hero-description">
+                Launched on 30th September 2019, the CND stands as a premier interdisciplinary hub for pioneering Display Technology and Nanomaterials innovation in India. 
+                Dedicated to catering the display community through novel innovation, research, and world-class commercialisation activities.
+            </div>
+        </section>
+
+        <div class="lab-showcase">
+            <div>
+                <div class="showcase-card">
+                    <img src="Research/Research lab picture1.png" alt="CND Laboratory View">
+                </div>
+                <div class="showcase-label">Advanced Fabrication Unit</div>
+            </div>
+            <div>
+                <div class="showcase-card">
+                    <img src="Research/Research lab picture2.png" alt="Characterization Equipment">
+                </div>
+                <div class="showcase-label">Characterization Lab</div>
+            </div>
+        </div>
+
+        <section class="dossier-grid">
+            <div class="dossier-card">
+                <h3>Vision & Mission</h3>
+                <ul>
+                    <li><strong>Vision:</strong> Dedicated to cater display community and nano-materials area through novel innovation and commercialisation.</li>
+                    <li><strong>Mission:</strong> To become the nodal point for entire display activity in India and a world-class R&D centre.</li>
+                </ul>
+            </div>
+
+            <div class="dossier-card">
+                <h3>Research Priorities</h3>
+                <ul>
+                    <li>Liquid crystals and LCD phase transitions</li>
+                    <li>Photoisomerization and optical storage devices</li>
+                    <li>Electrochemical sensors & Biowaste based nanomaterials</li>
+                    <li>Cancer cell imaging & Antibacterial studies</li>
+                    <li>CO2 adsorption & Waste-to-wealth technology</li>
+                </ul>
+            </div>
+
+            <div class="dossier-card">
+                <h3>Major Facilities</h3>
+                <ul>
+                    <li><strong>Class-1000 Cleanroom:</strong> Specialized for materials fabrication.</li>
+                    <li><strong>LCD Laboratory:</strong> Full cycle from glass cleaning to LCD panels.</li>
+                    <li><strong>Photo Alignment Unit:</strong> For aligning nano-layers with precision.</li>
+                    <li><strong>Electrochemical Lab:</strong> Full suite for coin cell and battery fabrication.</li>
+                </ul>
+            </div>
+
+            <div class="dossier-card">
+                <h3>Services Offered</h3>
+                <ul>
+                    <li>Clean room facilities for display industry needs.</li>
+                    <li>Characterization services for industry and academic institutes.</li>
+                    <li>Photoalignment based nano-layers production.</li>
+                    <li>LC cells supply and consultancy for LCD industries.</li>
+                    <li>Porous nanomaterials supply and collaborative R&D.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Vanta Molecular Engine Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+        /* Constant Transparency to keep Molecular Effect high-impact everywhere */
+        document.getElementById('cinematic-wrapper').style.backgroundColor = 'rgba(0, 17, 40, 0.4)';
+
+        VANTA.NET({
+            el: "#vanta-canvas",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f2fe,        /* BMSCE Cyan */
+            backgroundColor: 0x001128, /* NoteGo Navy Pure */
+            points: 25.00,          /* HIGH DENSITY Molecular network */
+            maxDistance: 24.00,
+            spacing: 14.00,
+            showDots: true
+        });
+    </script>
+</body>
+</html>
+
+

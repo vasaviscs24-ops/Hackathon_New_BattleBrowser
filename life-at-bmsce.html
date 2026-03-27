@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life at BMSCE | B.M.S. College of Engineering</title>
+    <meta name="description"
+        content="Step into a vibrant ecosystem of limitless innovation, electrifying culture, and relentless student ambition at BMSCE.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Cinematic Curtain Reveal (Classic Theater Opening) */
+        .curtain-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            z-index: 10000;
+            pointer-events: none;
+        }
+        .curtain-panel {
+            width: 50%; height: 100%;
+            background: #030a14;
+            transition: transform 2.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .curtain-left { transform: translateX(0); border-right: 1px solid rgba(0, 242, 254, 0.1); }
+        .curtain-right { transform: translateX(0); border-left: 1px solid rgba(0, 242, 254, 0.1); }
+        
+        body.loaded .curtain-left { transform: translateX(-100%); }
+        body.loaded .curtain-right { transform: translateX(100%); }
+
+        .curtain-logo {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10001;
+            opacity: 1;
+            transition: opacity 1s ease;
+            text-align: center;
+        }
+        body.loaded .curtain-logo { opacity: 0; visibility: hidden; }
+        .curtain-logo img { width: 120px; filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.5)); }
+
+        /* Responsive Grid for Massive Club Showcase */
+        .life-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            max-width: 1400px;
+            margin-inline: auto;
+            padding-bottom: 100px;
+        }
+
+        .club-item {
+            position: relative;
+            height: 350px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(100px) scale(0.8);
+            transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Staggered Entrance via Reveal logic */
+        .club-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .club-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 2px solid rgba(0, 242, 254, 0);
+            border-radius: 20px;
+            transition: all 0.5s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .club-item:hover::before {
+            border-color: rgba(0, 242, 254, 0.8);
+            box-shadow: inset 0 0 40px rgba(0, 242, 254, 0.2);
+        }
+
+        .club-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .club-item:hover .club-img {
+            transform: scale(1.12);
+        }
+
+        .club-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(3,10,20,0.95) 0%, transparent 100%);
+            padding: 30px 20px 20px 20px;
+            text-align: left;
+            z-index: 5;
+        }
+
+        .club-overlay h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            margin: 0;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .life-gallery {
+                grid-template-columns: 1fr;
+            }
+            .club-item {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-brand-bg"></div>
+
+    <!-- Cinematic Curtain -->
+    <div class="curtain-wrapper">
+        <div class="curtain-panel curtain-left"></div>
+        <div class="curtain-logo">
+            <img src="logo-transparent.png" alt="BMSCE">
+            <h2 class="text-gradient" style="margin-top: 15px; font-size: 1.5rem;">BMSCE Life</h2>
+        </div>
+        <div class="curtain-panel curtain-right"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header" style="height: 45vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Life at BMSCE</h1>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
+                Step directly into a vibrant ecosystem of limitless innovation, electrifying culture, and relentless student ambition.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 20px;">
+        <div class="life-gallery">
+            
+            <!-- Strictly sequential delays (0.05s increments) for all 29 items -->
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.05s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 144947.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Cultural Spirit</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.10s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205702.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Innovation Lab</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.15s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205722.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Tech Community</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.20s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205733.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Student Leadership</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.25s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205747.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Creative Arts</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.30s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205759.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Global Exposure</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.35s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205811.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Social Impact</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.40s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205821.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Future Minds</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.45s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205844.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Academic Excellence</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.50s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205857.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Tech Synergy</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.55s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205916.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Collaboration</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.60s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205928.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Digital Era</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.65s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205940.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Smart Campus</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.70s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 205952.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Student Hub</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.75s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210005.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Modern Learning</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.80s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210023.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Research Hub</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.85s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210040.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Innovate BMS</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.90s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210057.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Cultural Fest</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 0.95s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210108.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Future Frontiers</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.00s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210125.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Global Outreach</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.05s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210827.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Community Bonding</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.10s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210841.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Tech Expo</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.15s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210857.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Artistic Pulse</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.20s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210910.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Design Thinking</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.25s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210926.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Beyond Academics</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.30s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210939.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Student Success</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.35s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 210953.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Campus Vibrance</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.40s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 211003.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Lead BMS</h3></div></div>
+            <div class="club-item reveal-on-scroll" style="transition-delay: 1.45s;"><img src="About Page/Life at BMSCE/Screenshot 2026-03-26 211018.png" alt="BMSCE Club" class="club-img"><div class="club-overlay"><h3>Spirit of BMS</h3></div></div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

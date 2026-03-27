@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionaries & Governing Bodies | B.M.S. College of Engineering</title>
+    <meta name="description"
+        content="Meet the visionary founders of B.M.S. College of Engineering - Late Sri. B.M. Sreenivasaiah and Late Sri. B. S. Narayan.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific glowing enhancements for the portrait cards */
+        .visionary-card {
+            display: flex;
+            align-items: stretch;
+            gap: 50px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .visionary-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 6px; height: 100%;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue));
+            border-radius: 40px 0 0 40px;
+        }
+
+        .visionary-photo-wrapper {
+            flex: 0 0 350px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,242,254,0.15);
+            position: relative;
+        }
+
+        .visionary-photo-wrapper::after {
+            content:'';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 30px;
+            pointer-events: none;
+        }
+
+        .visionary-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 1.2s ease;
+        }
+
+        .visionary-card:hover .visionary-photo {
+            transform: scale(1.08) translateY(-5px);
+        }
+
+        .visionary-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .visionary-role {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        @media (max-width: 900px) {
+            .visionary-card {
+                flex-direction: column;
+            }
+            .visionary-photo-wrapper {
+                flex: auto;
+                max-width: 100%;
+                aspect-ratio: 1/1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+                <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html" class="active">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header" style="height: 50vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Our Visionaries</h1>
+            <p style="color: rgba(226, 232, 240, 0.9);">
+                Honoring the legendary founders whose uncompromising vision and philanthropic spirit ignited the spark of premier technical education in India.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 50px;">
+        <div class="about-grid">
+
+            <!-- FOUNDER 1 -->
+            <div class="visionary-card reveal-on-scroll">
+                <div class="visionary-photo-wrapper">
+                    <!-- Attempting first screenshot image -->
+                    <img src="About Page/Governing Body/Screenshot 2026-03-26 144136.png" onerror="this.src='bmsce-img-1.jpg'" alt="Late Sri. B.M. Sreenivasaiah" class="visionary-photo">
+                </div>
+                <div class="visionary-content">
+                    <span class="visionary-role">Founder, B.M.S. Educational Trust</span>
+                    <h2 class="text-gradient" style="font-size: 3.5rem; margin-bottom: 15px; line-height: 1;">Late Sri. B.M. Sreenivasaiah</h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.8;">
+                        Etched permanently in the illustrious history of Karnataka, the name of <strong>Late Businayana Mukundadas Sreenivasaiah (BMS)</strong> stands as a monumental pillar in the realm of philanthropy. A visionary ahead of his time, he possessed an unwavering belief in empowering human intellect. Recognizing his profound contributions, the Maharaja of Mysore bestowed upon him the prestigious title of <em>Raja Karya Prasaktha</em> in 1946.
+                    </p>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9;">
+                        It was in that same golden year he established the B.M.S. College of Engineering. Even before the dawn of India's independence, he boldly foresaw the critical urgency for elite technical education to drive the nation forward. The noble ideals and relentless dedication for which Sri. B. M. Sreenivasaiah stood transcend generations, continuing to deeply inspire and guide the inheritors of his extraordinary legacy today.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FOUNDER 2 -->
+            <div class="visionary-card reveal-on-scroll">
+                <div class="visionary-photo-wrapper">
+                    <!-- Attempting second screenshot image -->
+                    <img src="About Page/Governing Body/Screenshot 2026-03-26 144443.png" onerror="this.src='img1.webp'" alt="Late Sri. B. S. Narayan" class="visionary-photo">
+                </div>
+                <div class="visionary-content">
+                    <span class="visionary-role">Donor Trustee, B.M.S. Educational Trust</span>
+                    <h2 class="text-gradient" style="font-size: 3.5rem; margin-bottom: 15px; line-height: 1;">Late Sri. B. S. Narayan</h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.8;">
+                        Following the monumental legacy of Sri. B.M. Sreenivasaiah, his highly dynamic and brilliantly enterprising son, <strong>Sri. B. S. Narayan</strong>, courageously took over the reins of the institution. Inheriting his father's unyielding passion, the college surged from strength to magnificent strength under his extraordinarily capable guidance.
+                    </p>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9;">
+                        A true pioneer of modern educational globalization, he was deeply instrumental in weaving international collaborative programs into the fabric of BMSCE. By initiating the training of foreign students beneath the esteemed International Co-operation Division (ICD) and pioneering cross-cultural synthesis programs with the globally renowned Melton Foundation, he secured BMSCE’s irrefutable position as a worldly destination for technical excellence.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Labs | BMSCE Research</title>
+    <meta name="description" content="Explore Propel Labs at BMSCE - A cinematic portal into multidisciplinary research and innovation.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Cinematic Iris-Out Transition (Stabilized Dark Theme) */
+        body {
+            background: url('reseach background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            overflow: hidden;
+            color: #E2E8F0;
+        }
+
+        .reveal-curtain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #030A14;
+            z-index: 9999;
+            clip-path: circle(150% at center);
+            transition: clip-path 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            will-change: clip-path;
+        }
+
+        body.revealed .reveal-curtain {
+            clip-path: circle(0% at center);
+        }
+
+        #cinematic-wrapper {
+            background: rgba(3, 10, 20, 0.75); /* Dark translucent overlay */
+            backdrop-filter: blur(2px); /* Subtle blur for professional clarity */
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        body.revealed {
+            overflow: auto;
+        }
+
+        /* Parallax Floating Element */
+        .research-brand-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: url('logo3.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.1;
+            filter: blur(2px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .labs-hero {
+            padding: 150px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .labs-hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .labs-hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid Layout */
+        .labs-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .lab-portal-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .lab-portal-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 50px 100px rgba(0, 242, 254, 0.15);
+        }
+
+        .lab-image-header {
+            height: 350px; /* Slightly bigger images */
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.8s ease;
+        }
+
+        .lab-portal-card:hover .lab-image-header {
+            transform: scale(1.1);
+        }
+
+        .lab-image-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(3, 10, 20, 0.6), transparent);
+        }
+
+        .lab-portal-content {
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px; /* Fit text within box */
+        }
+
+        .lab-portal-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .lab-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.2));
+            color: var(--accent-cyan);
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        .lab-desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .lab-meta {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            font-size: 0.95rem;
+        }
+
+        .meta-item strong {
+            color: var(--accent-cyan);
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive Overrides */
+        @media (max-width: 900px) {
+            .labs-grid {
+                padding: 20px;
+                gap: 50px;
+            }
+            .labs-hero h1 {
+                font-size: 3rem;
+            }
+            .labs-hero p {
+                font-size: 1.1rem;
+            }
+            .lab-entry img {
+                border-radius: 20px;
+            }
+            .lab-entry h2 {
+                font-size: 1.8rem !important;
+            }
+        }
+
+        .hamburger { display: none; }
+        #nav-toggle { display: none; }
+    </style>
+</head>
+<body>
+    
+    <div class="research-brand-bg"></div>
+    <div class="reveal-curtain"></div>
+
+    <div id="cinematic-wrapper">
+        <header id="navbar">
+            <div class="logo-container">
+                <img src="logo-transparent.png" class="logo-img" alt="BMSCE Logo">
+                <div class="logo-text">BMSCE</div>
+            </div>
+                    <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+                        <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI & Machine Learning</a>
+                    <a href="academics-ece.html">Electronics & Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html" class="active">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+        </header>
+
+        <section class="labs-hero" style="background: transparent; padding-bottom: 80px;">
+            <h1 class="text-gradient">Innovative Labs</h1>
+            <p style="color: var(--text-muted); font-weight: 400;">
+                Experience the frontier of engineering at BMSCE. Our Propel Labs are centralized hubs for multidisciplinary research, student-led innovation, and industry-grade prototyping.
+            </p>
+        </section>
+
+        <div class="labs-grid" style="display: flex; flex-direction: column; gap: 80px; max-width: 1000px;">
+            <!-- Lab I: Robotics -->
+            <div class="lab-entry reveal-on-scroll">
+                <img src="Research/propel1.png" style="width: 100%; border-radius: 30px; border: 2px solid rgba(0, 242, 254, 0.3); box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
+                <div style="margin-top: 30px;">
+                    <div class="lab-badge">Robotics & Embedded Systems</div>
+                    <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Propel Lab I</h2>
+                    <p class="lab-desc">A powerhouse for Robotics, ML, and IoT. Students design autonomous systems and embedded architectures in collaboration with global partners like ARM and Mediatek.</p>
+                    <div class="lab-meta">
+                        <div class="meta-item"><strong>Coordinators</strong>Mr. Harish V Mekali | Mr. Girish K</div>
+                        <div class="meta-item"><strong>Legacy</strong>Supported by IIT-Bombay | Multiple Patents Pending</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab II: 3D Printing -->
+            <div class="lab-entry reveal-on-scroll">
+                <img src="Research/propel2.png" style="width: 100%; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.4);">
+                <div style="margin-top: 30px;">
+                    <div class="lab-badge">Additive Manufacturing</div>
+                    <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Propel Lab II</h2>
+                    <p class="lab-desc">Revolutionizing manufacturing since 2014. This lab has supported over 400 projects, pushing the boundaries of automotive and aerospace design through 3D printing.</p>
+                    <div class="lab-meta">
+                        <div class="meta-item"><strong>Coordinator</strong>Arpitha KV</div>
+                        <div class="meta-item"><strong>Fleet</strong>Creality Ender3 V3 SE | Makerbot Z18 | FlashForge 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab III: Aerospace -->
+            <div class="lab-entry reveal-on-scroll">
+                <img src="Research/propel3.png" style="width: 100%; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.4);">
+                <div style="margin-top: 30px;">
+                    <div class="lab-badge">Aerospace Engineering</div>
+                    <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Propel Lab III</h2>
+                    <p class="lab-desc">Home of 'Aero BMSCE'. From weight-optimized aircraft to complex UAV parameters, students solve global engineering challenges using laser-cutting and CNC tech.</p>
+                    <div class="lab-meta">
+                        <div class="meta-item"><strong>Coordinators</strong>Sri Ram Rohit V | Sri K. Satyanarayana Reddy</div>
+                        <div class="meta-item"><strong>Awards</strong>Global 23rd Rank (USA) | 1st Prize SAE India 2020</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab IV: SAE Bullz -->
+            <div class="lab-entry reveal-on-scroll">
+                <img src="Research/propel4.png" style="width: 100%; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.4);">
+                <div style="margin-top: 30px;">
+                    <div class="lab-badge">Automotive Engineering</div>
+                    <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Propel Lab IV</h2>
+                    <p class="lab-desc">Founded in 2010. Strategic partner of SAE International. A student collegiate club dedicated to automotive innovation and real-world application.</p>
+                    <div class="lab-meta">
+                        <div class="meta-item"><strong>Mentors</strong>Dr. Rathanraj K J | Sri Rajesh P</div>
+                        <div class="meta-item"><strong>Focus</strong>Innovation Beyond the Classroom | SAEINDIA Collegiate Club</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="margin-top: 100px; background: rgba(3, 10, 20, 0.7); color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.08);">
+            <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            // Smooth Cinematic Entrance
+            setTimeout(() => {
+                document.body.classList.add('revealed');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+
+
