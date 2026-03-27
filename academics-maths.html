@@ -1,22 +1,90 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics | BMSCE Academics</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        .academic-content-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .section-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 40px; margin-bottom: 40px; }
-        .section-box h3 { color: var(--accent-cyan); font-size: 1.8rem; margin-bottom: 20px; font-weight: 700; }
-        .section-text { color: #cbd5e1; line-height: 1.8; font-size: 1.05rem; }
-        .pdf-btn { display: inline-flex; align-items: center; gap: 12px; background: #0ea5e9; color: white; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: none; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3); }
-        .pdf-btn:hover { transform: translateY(-3px); }
-        .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .faculty-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; text-align: center; transition: all 0.4s ease; }
-        .faculty-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; border: 3px solid var(--accent-cyan); object-fit: cover; background: #1e293b; }
+        .academic-content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .section-box h3 {
+            color: var(--accent-cyan);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-text {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #0ea5e9;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .pdf-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .faculty-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .faculty-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-cyan);
+            object-fit: cover;
+            background: #1e293b;
+        }
     </style>
 </head>
+
 <body class="about-page">
     <div class="about-brand-bg"></div>
     <header id="navbar">
@@ -29,7 +97,9 @@
             <li class="dropdown"><a href="about.html">About</a>
                 <div class="dropdown-content">
                     <a href="governing-bodies.html">Governing Bodies</a>
-                    <a href="administration.html">Administration</a><a href="e-governance.html">E-Governance</a><a href="partner-institutions.html">Group of Institutions</a><a href="life-at-bmsce.html">Life at BMSCE</a>
+                    <a href="administration.html">Administration</a><a href="e-governance.html">E-Governance</a><a
+                        href="partner-institutions.html">Group of Institutions</a><a href="life-at-bmsce.html">Life at
+                        BMSCE</a>
                 </div>
             </li>
             <li class="dropdown"><a href="#" class="active">Academics</a>
@@ -47,10 +117,13 @@
                 </div>
             </li>
             <li class="dropdown"><a href="research-about.html">Research</a>
-                <div class="dropdown-content"><a href="research-about.html">About R&D</a><a href="research-labs.html">Innovative Labs</a><a href="research-nano.html">Nanomaterials Centre</a><a href="research-patents.html">Patents Filed</a></div>
+                <div class="dropdown-content"><a href="research-about.html">About R&D</a><a
+                        href="research-labs.html">Innovative Labs</a><a href="research-nano.html">Nanomaterials
+                        Centre</a><a href="research-patents.html">Patents Filed</a></div>
             </li>
             <li class="dropdown"><a href="placement-about.html">Placements</a>
-                <div class="dropdown-content"><a href="placement-about.html">About Placements</a><a href="placement-training.html">Placement Training</a></div>
+                <div class="dropdown-content"><a href="placement-about.html">About Placements</a><a
+                        href="placement-training.html">Placement Training</a></div>
             </li>
             <li><a href="facilities.html">Facilities</a></li>
             <li><a href="admissions.html">Admissions</a></li>
@@ -61,7 +134,8 @@
     <section class="about-header" style="height: 40vh;">
         <div class="about-header-content">
             <h1 class="text-gradient">Department of Mathematics</h1>
-            <p style="color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.6;">Leading center for teaching & research in Mathematics, fostering analytical and rational thinking.</p>
+            <p style="color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.6;">Leading center for teaching &
+                research in Mathematics, fostering analytical and rational thinking.</p>
         </div>
     </section>
 
@@ -69,7 +143,8 @@
         <section class="section-box reveal-on-scroll">
             <h3>About Department</h3>
             <div class="section-text">
-                <p>The Department of Mathematics at BMSCE is dedicated to encouraging independent, rational thinking and enhancing problem-solving skills through advanced mathematical education.</p>
+                <p>The Department of Mathematics at BMSCE is dedicated to encouraging independent, rational thinking and
+                    enhancing problem-solving skills through advanced mathematical education.</p>
             </div>
         </section>
 
@@ -77,27 +152,47 @@
             <h3>Vision & Mission</h3>
             <div class="section-text">
                 <p><strong>Vision:</strong> To be one of the leading centers for teaching & research in Mathematics.</p>
-                <p style="margin-top: 10px;"><strong>Mission:</strong> To encourage analytical, independent, rational thinking, and enhance problem-solving skills.</p>
+                <p style="margin-top: 10px;"><strong>Mission:</strong> To encourage analytical, independent, rational
+                    thinking, and enhance problem-solving skills.</p>
             </div>
         </section>
 
         <section class="reveal-on-scroll">
-            <h2 class="text-gradient" style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Our Faculty</h2>
+            <h2 class="text-gradient" style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Our Faculty
+            </h2>
             <div class="faculty-grid">
                 <div class="faculty-card">
-                    <div class="faculty-photo" style="background-image: url('https://ui-avatars.com/api/?name=Veena+Jawali&background=0ea5e9&color=fff'); background-size: cover;"></div>
-                    <div class="faculty-name">Dr. Veena Jawali</div>
+                    <div class="faculty-photo"
+                        style="background-image: url('branch/Maths/ShrivalliHY.png'); background-size: cover;"></div>
+                    <div class="faculty-name">Dr. Shrivalli HY</div>
                     <div class="faculty-designation">Professor & HOD</div>
-                    <div class="section-text" style="font-size: 0.85rem; margin-top: 10px;">Fluid Mechanics, Numerical Analysis.</div>
+                    <div class="section-text" style="font-size: 0.85rem; margin-top: 10px;">Numerical Methods, Numerical
+                        Analysis.</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo"
+                        style="background-image: url('branch/Maths/TNVishalakshi.png'); background-size: cover;"></div>
+                    <div class="faculty-name">Dr. TN Vishalakshi</div>
+                    <div class="faculty-designation">Professor </div>
+                    <div class="section-text" style="font-size: 0.85rem; margin-top: 10px;">Fluid Mechanics, Numerical
+                        Analysis.</div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-photo"
+                        style="background-image: url('branch/Maths/ShivaswamyPM.png'); background-size: cover;"></div>
+                    <div class="faculty-name">Dr. ShivaswamyPM</div>
+                    <div class="faculty-designation">Associate Professor</div>
+                    <div class="section-text" style="font-size: 0.85rem; margin-top: 10px;">Graph Theory, Numerical
+                        Analysis.</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer><p>&copy; 2026 BMSCE Bengaluru. All Rights Reserved.</p></footer>
+    <footer>
+        <p>&copy; 2026 BMSCE Bengaluru. All Rights Reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
