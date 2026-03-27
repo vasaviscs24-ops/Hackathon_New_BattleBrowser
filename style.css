@@ -11,15 +11,15 @@
   --bg-dark: #030A14;
   --bg-gradient: linear-gradient(135deg, #030A14 0%, #0A192F 100%);
   --text-main: #E2E8F0;
-  --text-muted: #cbd5e1;
+  --text-muted: #94A3B8;
   --accent-cyan: #00F2FE;
   --accent-blue: #4FACFE;
-  
+
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   --glass-blur: 24px;
-  
+
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -41,7 +41,8 @@ body {
 }
 
 /* Ambient Glowing Orbs in Background */
-body::before, body::after {
+body::before,
+body::after {
   content: '';
   position: fixed;
   width: 600px;
@@ -73,12 +74,23 @@ body::after {
 }
 
 @keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(100px, 50px) scale(1.2); }
-  100% { transform: translate(-50px, 100px) scale(0.9); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(100px, 50px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-50px, 100px) scale(0.9);
+  }
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
 }
 
@@ -120,7 +132,7 @@ header.scrolled {
   -webkit-backdrop-filter: blur(20px);
   padding: 15px 60px;
   border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .logo-container {
@@ -132,7 +144,7 @@ header.scrolled {
 .logo-img {
   height: 55px;
   width: auto;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
   transition: transform 0.3s ease;
 }
 
@@ -156,13 +168,15 @@ header.scrolled {
 }
 
 .nav-links a {
-  color: var(--text-muted);
+  color: #ffffff;
+  /* bright white */
   font-weight: 500;
   font-size: 1.05rem;
   transition: all 0.3s ease;
   position: relative;
   padding: 5px 0;
 }
+
 
 .nav-links a::after {
   content: '';
@@ -176,11 +190,13 @@ header.scrolled {
   border-radius: 2px;
 }
 
-.nav-links a:hover::after, .nav-links a.active::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: #fff;
   text-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
 }
@@ -189,7 +205,8 @@ header.scrolled {
 .dropdown {
   position: relative;
   display: inline-block;
-  padding-bottom: 25px; /* safe hover area */
+  padding-bottom: 25px;
+  /* safe hover area */
   margin-bottom: -20px;
   perspective: 1000px;
 }
@@ -217,7 +234,10 @@ header.scrolled {
 .dropdown-content::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 2px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-blue), transparent);
   border-radius: 20px 20px 0 0;
 }
@@ -226,9 +246,11 @@ header.scrolled {
 .dropdown-content::after {
   content: '';
   position: absolute;
-  top: -8px; left: 50%;
+  top: -8px;
+  left: 50%;
   transform: translateX(-50%) rotate(45deg);
-  width: 16px; height: 16px;
+  width: 16px;
+  height: 16px;
   background: rgba(3, 10, 20, 0.9);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -266,18 +288,23 @@ header.scrolled {
 .dropdown-content a::before {
   content: '';
   position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(90deg, rgba(0, 242, 254, 0.15), transparent);
   transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
   border-radius: 12px;
 }
 
-.dropdown-content a:hover::before, .dropdown-content a.active::before {
+.dropdown-content a:hover::before,
+.dropdown-content a.active::before {
   left: 0;
 }
 
-.dropdown-content a:hover, .dropdown-content a.active {
+.dropdown-content a:hover,
+.dropdown-content a.active {
   color: #fff;
   padding-left: 28px;
   text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
@@ -322,7 +349,8 @@ header.scrolled {
 
 .slide.active {
   opacity: 1;
-  transform: scale(1.08); /* Cinematic slow zoom */
+  transform: scale(1.08);
+  /* Cinematic slow zoom */
 }
 
 .hero-overlay {
@@ -331,7 +359,7 @@ header.scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(3,10,20,0.35) 0%, rgba(3,10,20,0.7) 60%, #030A14 100%);
+  background: linear-gradient(to bottom, rgba(3, 10, 20, 0.1) 0%, rgba(3, 10, 20, 0.4) 75%, #030A14 100%);
   z-index: -1;
 }
 
@@ -353,20 +381,18 @@ header.scrolled {
 
 .hero-tagline {
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 25px;
-  color: #e2e8f0;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  color: var(--text-muted);
 }
 
 .hero-intro {
   font-size: 1.15rem;
   margin-bottom: 50px;
   font-family: var(--font-body);
-  color: #f1f5f9;
+  color: rgba(226, 232, 240, 0.8);
   max-width: 700px;
   margin-inline: auto;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 /* Stunning Buttons */
@@ -394,8 +420,11 @@ header.scrolled {
 .btn::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transform: translateX(-100%);
   transition: 0.6s;
 }
@@ -459,8 +488,10 @@ header.scrolled {
 .preview-content::after {
   content: '';
   position: absolute;
-  top: 0; right: 0;
-  width: 300px; height: 300px;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, transparent 70%);
   z-index: -1;
 }
@@ -497,10 +528,13 @@ header.scrolled {
 }
 
 .preview-image-wrapper::before {
-  content:'';
+  content: '';
   position: absolute;
-  top:0; left:0; width:100%; height:100%;
-  border: 1px solid rgba(255,255,255,0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   pointer-events: none;
   z-index: 2;
@@ -563,7 +597,7 @@ header.scrolled {
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* The legendary blurred logo background effect */
@@ -587,7 +621,8 @@ header.scrolled {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120vw; /* Larger for parallax room */
+  width: 120vw;
+  /* Larger for parallax room */
   height: 120vh;
   background: url('reseach background.jpg') no-repeat center center;
   background-size: cover;
@@ -667,8 +702,10 @@ header.scrolled {
 .about-block::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 5px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
   opacity: 0.7;
 }
@@ -701,16 +738,16 @@ header.scrolled {
 .about-two-col .about-img-wrapper {
   border-radius: 30px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .about-two-col .about-img-wrapper::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(3,10,20,0.3), transparent);
+  background: linear-gradient(to top, rgba(3, 10, 20, 0.3), transparent);
   pointer-events: none;
 }
 
@@ -747,6 +784,7 @@ footer {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -757,15 +795,21 @@ footer {
    RESPONSIVE DESIGN
 ========================================= */
 @media (max-width: 1024px) {
-  .preview-container, .about-two-col {
+
+  .preview-container,
+  .about-two-col {
     grid-template-columns: 1fr;
   }
-  .preview-image-wrapper, .about-img-wrapper {
+
+  .preview-image-wrapper,
+  .about-img-wrapper {
     order: -1;
   }
+
   .hero-title {
     font-size: 3.5rem;
   }
+
   .about-header-content h1 {
     font-size: 4rem;
   }
@@ -775,24 +819,31 @@ footer {
   header {
     padding: 20px 30px;
   }
+
   header.scrolled {
     padding: 15px 30px;
   }
+
   .nav-links {
     gap: 20px;
   }
+
   .hero-title {
     font-size: 2.8rem;
   }
+
   .hero-tagline {
     font-size: 1.2rem;
   }
+
   .about-block {
     padding: 40px 30px;
   }
+
   .about-block h2 {
     font-size: 2.2rem;
   }
+
   .preview-glass-card {
     right: 10px;
     bottom: -20px;

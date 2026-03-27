@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BMSCE</title>
+    <meta name="description" content="Get in touch with B.M.S. College of Engineering. Address, phone, email and location map.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 100px; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+        }
+        .info-card:hover { transform: translateY(-6px); border-color: rgba(0,242,254,0.3); }
+
+        .info-card h3 {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .info-icon {
+            width: 42px; height: 42px;
+            background: rgba(0,242,254,0.08);
+            border: 1px solid rgba(0,242,254,0.2);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .info-label { font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .info-value { color: #e2e8f0; font-size: 1rem; line-height: 1.6; }
+        .info-value a { color: #e2e8f0; transition: color 0.2s ease; }
+        .info-value a:hover { color: var(--accent-cyan); }
+
+        /* Map Card */
+        .map-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        .map-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            z-index: 1;
+        }
+        .map-card iframe { width: 100%; height: 100%; min-height: 420px; border: none; display: block; filter: invert(0.9) hue-rotate(180deg) brightness(0.85) saturate(0.8); }
+
+        /* Form */
+        .form-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 24px;
+            padding: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, #a855f7, var(--accent-cyan));
+        }
+        .form-card h3 { color: #fff; font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+        .form-card p { color: #94a3b8; margin-bottom: 30px; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-full { grid-column: 1 / -1; }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { color: #cbd5e1; font-size: 0.9rem; font-weight: 600; }
+        .form-group input, .form-group textarea, .form-group select {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(0,242,254,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+
+        .submit-btn {
+            margin-top: 25px;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            border: none;
+            border-radius: 14px;
+            color: #030a14;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,242,254,0.25);
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,242,254,0.4); }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="about-page">
+    <div class="about-brand-bg"></div>
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Academics</a>
+                <div class="dropdown-content">
+                    <a href="academics-cse.html">Computer Science</a>
+                    <a href="academics-aiml.html">AI &amp; Machine Learning</a>
+                    <a href="academics-ece.html">Electronics &amp; Communication</a>
+                    <a href="academics-mechanical.html">Mechanical Engineering</a>
+                    <a href="academics-civil.html">Civil Engineering</a>
+                    <a href="academics-chemical.html">Chemical Engineering</a>
+                    <a href="academics-biotech.html">Biotechnology</a>
+                    <a href="academics-maths.html">Mathematics</a>
+                    <a href="academics-physics.html">Physics</a>
+                    <a href="academics-chemistry.html">Chemistry</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="research-about.html">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&amp;D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="placement-about.html">Placements</a>
+                <div class="dropdown-content">
+                    <a href="placement-about.html">About Placements</a>
+                    <a href="placement-training.html">Placement Training</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="about-header" style="height: 38vh;">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Contact Us</h1>
+            <p style="color: #94a3b8; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                Reach out to us for admissions, academic queries, or general information.
+            </p>
+        </div>
+    </section>
+
+    <div class="contact-container">
+
+        <!-- Contact Info Grid -->
+        <div class="contact-grid reveal-on-scroll">
+            <!-- Address & Details -->
+            <div class="info-card">
+                <h3>📍 Get In Touch</h3>
+
+                <div class="info-row">
+                    <div class="info-icon">🏛️</div>
+                    <div>
+                        <div class="info-label">Address</div>
+                        <div class="info-value">P.O. Box No.: 1908, Bull Temple Road,<br>Bangalore – 560 019, Karnataka, India.</div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">
+                            <a href="tel:+8026622130">080-26622130</a> / 31 / 32 / 33 / 34 / 35
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon">📠</div>
+                    <div>
+                        <div class="info-label">Fax</div>
+                        <div class="info-value">+91-80-26614357</div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon">✉️</div>
+                    <div>
+                        <div class="info-label">Email</div>
+                        <div class="info-value"><a href="mailto:info@bmsce.ac.in">info@bmsce.ac.in</a></div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon">🌐</div>
+                    <div>
+                        <div class="info-label">Website</div>
+                        <div class="info-value"><a href="https://www.bmsce.ac.in" target="_blank">www.bmsce.ac.in</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.254949265556!2d77.56503277454858!3d12.942286915612143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15fc9bf91c9b%3A0x60a36f34cbae3d52!2sB.M.S.%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1711553000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="BMSCE Location Map">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-card reveal-on-scroll">
+            <h3>Send Us a Message</h3>
+            <p>We typically respond within 1–2 business days.</p>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" placeholder="e.g. Rajesh">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" placeholder="e.g. Kumar">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group form-full">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="e.g. Admissions Inquiry 2026">
+                </div>
+                <div class="form-group form-full">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Write your message here..."></textarea>
+                </div>
+            </div>
+            <button class="submit-btn">Send Message →</button>
+        </div>
+
+    </div>
+
+    <footer><p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
