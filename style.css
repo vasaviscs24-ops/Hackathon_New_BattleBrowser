@@ -792,6 +792,35 @@ footer {
 }
 
 /* =========================================
+   HAMBURGER BUTTON
+========================================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =========================================
    RESPONSIVE DESIGN
 ========================================= */
 @media (max-width: 1024px) {
@@ -815,32 +844,150 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+/* ── Tablet & Mobile ── */
+@media (max-width: 820px) {
+
+  /* Navbar */
   header {
-    padding: 20px 30px;
+    padding: 18px 24px;
+    gap: 0;
   }
 
   header.scrolled {
-    padding: 15px 30px;
+    padding: 14px 24px;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .nav-links {
-    gap: 20px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 80vw);
+    height: 100vh;
+    background: rgba(3, 10, 20, 0.97);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 90px 0 40px;
+    border-left: 1px solid rgba(0, 242, 254, 0.15);
+    z-index: 1050;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
   }
 
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 16px 28px;
+    font-size: 1rem;
+    color: #e2e8f0 !important;
+    width: 100%;
+  }
+
+  .nav-links a::after { display: none; }
+
+  /* Mobile Dropdowns - always visible when parent is active */
+  .dropdown-content {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 0 20px;
+    display: none;
+    min-width: auto;
+    border: none;
+  }
+
+  .dropdown-content::before,
+  .dropdown-content::after {
+    display: none;
+  }
+
+  .dropdown.mobile-open .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    border-radius: 0;
+    border-left: 2px solid rgba(0, 242, 254, 0.3);
+  }
+
+  .dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+  }
+
+  .dropdown.mobile-open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+  }
+
+  .nav-overlay.open {
+    display: block;
+  }
+
+  /* Hero */
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
-  .about-block {
-    padding: 40px 30px;
+  .hero-intro {
+    font-size: 0.95rem;
   }
 
-  .about-block h2 {
+  /* About Preview */
+  .about-preview {
+    padding: 60px 20px;
+  }
+
+  .preview-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .preview-content {
+    padding: 28px;
+  }
+
+  .section-title {
     font-size: 2.2rem;
   }
 
@@ -849,4 +996,76 @@ footer {
     bottom: -20px;
     padding: 20px 25px;
   }
+
+  .preview-glass-card h4 {
+    font-size: 2rem;
+  }
+
+  /* About content */
+  .about-block {
+    padding: 30px 22px;
+  }
+
+  .about-block h2 {
+    font-size: 1.9rem;
+  }
+
+  .about-header-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .about-header-content p {
+    font-size: 1.05rem;
+    padding: 0 16px;
+  }
+
+  .about-two-col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-content-section {
+    padding: 60px 20px;
+  }
 }
+
+/* ── Small Mobile ── */
+@media (max-width: 480px) {
+
+  header {
+    padding: 14px 18px;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+  }
+
+  .logo-img {
+    height: 42px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.85rem;
+  }
+
+  .about-header-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-block {
+    padding: 24px 18px;
+  }
+}

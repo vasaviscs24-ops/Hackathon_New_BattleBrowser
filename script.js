@@ -140,3 +140,107 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* =========================================
+   MOBILE HAMBURGER MENU
+========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('navbar');
+    if (!header) return;
+
+    // Inject hamburger button
+    const hamburger = document.createElement('button');
+    hamburger.classList.add('hamburger');
+    hamburger.setAttribute('aria-label', 'Toggle navigation');
+    hamburger.innerHTML = '<span></span><span></span><span></span>';
+    header.appendChild(hamburger);
+
+    // Inject overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('nav-overlay');
+    document.body.appendChild(overlay);
+
+    const navLinks = header.querySelector('.nav-links');
+
+    // Add dropdown arrows to mobile dropdowns
+    const dropdowns = navLinks ? navLinks.querySelectorAll('.dropdown > a') : [];
+    dropdowns.forEach(a => {
+        const arrow = document.createElement('span');
+        arrow.classList.add('dropdown-arrow');
+        arrow.textContent = '▾';
+        a.appendChild(arrow);
+    });
+
+    const openNav = () => {
+        hamburger.classList.add('open');
+        if (navLinks) navLinks.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeNav = () => {
+        hamburger.classList.remove('open');
+        if (navLinks) navLinks.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        // Close all mobile dropdowns
+        navLinks && navLinks.querySelectorAll('.dropdown').forEach(d => d.classList.remove('mobile-open'));
+    };
+
+    hamburger.addEventListener('click', () => {
+        if (hamburger.classList.contains('open')) closeNav();
+        else openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    // Mobile accordion dropdowns
+    dropdowns.forEach(a => {
+        a.addEventListener('click', (e) => {
+            if (window.innerWidth <= 820) {
+                e.preventDefault();
+                const parent = a.closest('.dropdown');
+                parent.classList.toggle('mobile-open');
+            }
+        });
+    });
+
+    // Close nav on resize back to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 820) closeNav();
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tiltElements = document.querySelectorAll('.about-block, .preview-content, .visionary-card, .partner-card, .club-item');
+    
+    tiltElements.forEach(el => {
+        // Initial setup for smooth 3D transform
+        el.style.transformStyle = 'preserve-3d';
+        
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -3; // 3 deg tilt max
+            const rotateY = ((x - centerX) / centerX) * 3;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            el.style.transition = 'transform 0.1s ease-out';
+            
+            // Dynamic flashlight cursor glow inside the card
+            el.style.background = `rgba(255, 255, 255, 0.03) radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            // Reset to flat state gracefully
+            el.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+            el.style.transition = 'transform 0.5s ease-out, background 0.5s ease-out';
+            el.style.background = 'rgba(255, 255, 255, 0.03)';
+        });
+    });
+});
