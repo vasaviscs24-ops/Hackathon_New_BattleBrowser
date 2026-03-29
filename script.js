@@ -75,46 +75,47 @@ document.addEventListener('DOMContentLoaded', () => {
    🌟 UNIQUE INTERACTIVE ANIMATIONS 🌟
 ========================================= */
 
-// 1. Mouse Parallax for Backgrounds
-document.addEventListener('mousemove', (e) => {
-    // Parallax background watermark logo
-    const bg = document.querySelector('.about-brand-bg');
-    if (bg) {
-        const x = (window.innerWidth - e.pageX * 2) / 90;
-        const y = (window.innerHeight - e.pageY * 2) / 90;
-        bg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-    }
-
-    const researchBg = document.querySelector('.research-brand-bg');
-    if (researchBg) {
-        const x = (window.innerWidth - e.pageX * 2) / 60;
-        const y = (window.innerHeight - e.pageY * 2) / 60;
-        researchBg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-    }
-
-    const placementBg = document.querySelector('.placement-brand-bg');
-    if (placementBg) {
-        const x = (window.innerWidth - e.pageX * 2) / 60;
-        const y = (window.innerHeight - e.pageY * 2) / 60;
-        placementBg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-    }
-
-    // Parallax background orbs
-    const orbX = (window.innerWidth - e.pageX * 2) / 100;
-    const orbY = (window.innerHeight - e.pageY * 2) / 100;
-    document.body.style.setProperty('--mouseX', `${orbX}px`);
-    document.body.style.setProperty('--mouseY', `${orbY}px`);
-});
-
-// 2. Interactive 3D Glare & Tilt Effect for Glass Cards
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mouse Parallax for Backgrounds
+    document.addEventListener('mousemove', (e) => {
+        // Parallax background watermark logo
+        const bg = document.querySelector('.about-brand-bg');
+        if (bg) {
+            const x = (window.innerWidth - e.pageX * 2) / 90;
+            const y = (window.innerHeight - e.pageY * 2) / 90;
+            bg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        }
+
+        const researchBg = document.querySelector('.research-brand-bg');
+        if (researchBg) {
+            const x = (window.innerWidth - e.pageX * 2) / 60;
+            const y = (window.innerHeight - e.pageY * 2) / 60;
+            researchBg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        }
+
+        const placementBg = document.querySelector('.placement-brand-bg');
+        if (placementBg) {
+            const x = (window.innerWidth - e.pageX * 2) / 60;
+            const y = (window.innerHeight - e.pageY * 2) / 60;
+            placementBg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        }
+
+        // Parallax background orbs
+        const orbX = (window.innerWidth - e.pageX * 2) / 100;
+        const orbY = (window.innerHeight - e.pageY * 2) / 100;
+        document.body.style.setProperty('--mouseX', `${orbX}px`);
+        document.body.style.setProperty('--mouseY', `${orbY}px`);
+    });
+
+    // 2. Interactive 3D Glare & Tilt Effect for Glass Cards
     const tiltElements = document.querySelectorAll('.about-block, .preview-content, .visionary-card, .partner-card, .club-item');
     
     tiltElements.forEach(el => {
-        // Initial setup for smooth 3D transform
         el.style.transformStyle = 'preserve-3d';
         
         el.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 820) return; // Disable tilt on mobile for performance and better touch interaction
+            
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -122,125 +123,95 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = ((y - centerY) / centerY) * -3; // 3 deg tilt max
+            const rotateX = ((y - centerY) / centerY) * -3;
             const rotateY = ((x - centerX) / centerX) * 3;
             
             el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             el.style.transition = 'transform 0.1s ease-out';
-            
-            // Dynamic flashlight cursor glow inside the card
             el.style.background = `rgba(255, 255, 255, 0.03) radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`;
         });
         
         el.addEventListener('mouseleave', () => {
-            // Reset to flat state gracefully
             el.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
             el.style.transition = 'transform 0.5s ease-out, background 0.5s ease-out';
             el.style.background = 'rgba(255, 255, 255, 0.03)';
         });
     });
-});
 
-/* =========================================
-   MOBILE HAMBURGER MENU
-========================================= */
-document.addEventListener('DOMContentLoaded', () => {
+    /* =========================================
+       MOBILE HAMBURGER MENU
+    ========================================= */
     const header = document.getElementById('navbar');
-    if (!header) return;
+    if (header) {
+        // Inject hamburger button
+        const hamburger = document.createElement('button');
+        hamburger.classList.add('hamburger');
+        hamburger.setAttribute('aria-label', 'Toggle navigation');
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(hamburger);
 
-    // Inject hamburger button
-    const hamburger = document.createElement('button');
-    hamburger.classList.add('hamburger');
-    hamburger.setAttribute('aria-label', 'Toggle navigation');
-    hamburger.innerHTML = '<span></span><span></span><span></span>';
-    header.appendChild(hamburger);
+        // Inject overlay
+        const overlay = document.createElement('div');
+        overlay.classList.add('nav-overlay');
+        document.body.appendChild(overlay);
 
-    // Inject overlay
-    const overlay = document.createElement('div');
-    overlay.classList.add('nav-overlay');
-    document.body.appendChild(overlay);
+        const navLinks = header.querySelector('.nav-links');
 
-    const navLinks = header.querySelector('.nav-links');
+        // Add dropdown arrows to mobile dropdowns
+        const dropdowns = navLinks ? navLinks.querySelectorAll('.dropdown > a') : [];
+        dropdowns.forEach(a => {
+            const arrow = document.createElement('span');
+            arrow.classList.add('dropdown-arrow');
+            arrow.textContent = '▾';
+            a.appendChild(arrow);
+        });
 
-    // Add dropdown arrows to mobile dropdowns
-    const dropdowns = navLinks ? navLinks.querySelectorAll('.dropdown > a') : [];
-    dropdowns.forEach(a => {
-        const arrow = document.createElement('span');
-        arrow.classList.add('dropdown-arrow');
-        arrow.textContent = '▾';
-        a.appendChild(arrow);
-    });
+        const openNav = () => {
+            hamburger.classList.add('open');
+            if (navLinks) navLinks.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            overlay.style.display = 'block';
+            setTimeout(() => { overlay.style.opacity = '1'; }, 10);
+        };
 
-    const openNav = () => {
-        hamburger.classList.add('open');
-        if (navLinks) navLinks.classList.add('open');
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeNav = () => {
-        hamburger.classList.remove('open');
-        if (navLinks) navLinks.classList.remove('open');
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-        // Close all mobile dropdowns
-        navLinks && navLinks.querySelectorAll('.dropdown').forEach(d => d.classList.remove('mobile-open'));
-    };
-
-    hamburger.addEventListener('click', () => {
-        if (hamburger.classList.contains('open')) closeNav();
-        else openNav();
-    });
-
-    overlay.addEventListener('click', closeNav);
-
-    // Mobile accordion dropdowns
-    dropdowns.forEach(a => {
-        a.addEventListener('click', (e) => {
-            if (window.innerWidth <= 820) {
-                e.preventDefault();
-                const parent = a.closest('.dropdown');
-                parent.classList.toggle('mobile-open');
+        const closeNav = () => {
+            hamburger.classList.remove('open');
+            if (navLinks) navLinks.classList.remove('open');
+            overlay.style.opacity = '0';
+            setTimeout(() => { 
+                overlay.classList.remove('open');
+                overlay.style.display = 'none'; 
+            }, 400);
+            document.body.style.overflow = '';
+            if (navLinks) {
+                navLinks.querySelectorAll('.dropdown').forEach(d => d.classList.remove('mobile-open'));
             }
-        });
-    });
+        };
 
-    // Close nav on resize back to desktop
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 820) closeNav();
-    });
-});
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (hamburger.classList.contains('open')) closeNav();
+            else openNav();
+        });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const tiltElements = document.querySelectorAll('.about-block, .preview-content, .visionary-card, .partner-card, .club-item');
-    
-    tiltElements.forEach(el => {
-        // Initial setup for smooth 3D transform
-        el.style.transformStyle = 'preserve-3d';
-        
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -3; // 3 deg tilt max
-            const rotateY = ((x - centerX) / centerX) * 3;
-            
-            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            el.style.transition = 'transform 0.1s ease-out';
-            
-            // Dynamic flashlight cursor glow inside the card
-            el.style.background = `rgba(255, 255, 255, 0.03) radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`;
+        overlay.addEventListener('click', closeNav);
+
+        // Mobile accordion dropdowns
+        dropdowns.forEach(a => {
+            a.addEventListener('click', (e) => {
+                if (window.innerWidth <= 820) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = a.closest('.dropdown');
+                    parent.classList.toggle('mobile-open');
+                }
+            });
         });
-        
-        el.addEventListener('mouseleave', () => {
-            // Reset to flat state gracefully
-            el.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
-            el.style.transition = 'transform 0.5s ease-out, background 0.5s ease-out';
-            el.style.background = 'rgba(255, 255, 255, 0.03)';
+
+        // Close nav on resize back to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 820) closeNav();
         });
-    });
+    }
 });

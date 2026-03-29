@@ -801,7 +801,7 @@ footer {
   gap: 5px;
   cursor: pointer;
   padding: 8px;
-  z-index: 1100;
+  z-index: 2000;
   background: none;
   border: none;
 }
@@ -819,6 +819,26 @@ footer {
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.nav-overlay.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* =========================================
    RESPONSIVE DESIGN
@@ -946,18 +966,6 @@ footer {
     transform: rotate(180deg);
   }
 
-  /* Mobile nav overlay */
-  .nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-  }
-
-  .nav-overlay.open {
-    display: block;
-  }
 
   /* Hero */
   .hero-title {
