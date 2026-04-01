@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.add('hamburger');
         hamburger.setAttribute('aria-label', 'Toggle navigation');
         hamburger.innerHTML = '<span></span><span></span><span></span>';
-        header.appendChild(hamburger);
+        document.body.appendChild(hamburger); // Move to body for global stacking
 
         // Inject overlay
         const overlay = document.createElement('div');
@@ -156,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(overlay);
 
         const navLinks = header.querySelector('.nav-links');
+        if (navLinks) {
+            // Move navLinks to body to avoid parent-container filter/clipping issues
+            document.body.appendChild(navLinks);
+        }
 
         // Add dropdown arrows to mobile dropdowns
         const dropdowns = navLinks ? navLinks.querySelectorAll('.dropdown > a') : [];
