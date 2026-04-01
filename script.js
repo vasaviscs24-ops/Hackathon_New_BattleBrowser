@@ -204,6 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     e.stopPropagation();
                     const parent = a.closest('.dropdown');
+                    
+                    // Close other dropdowns
+                    navLinks.querySelectorAll('.dropdown').forEach(d => {
+                        if (d !== parent) d.classList.remove('mobile-open');
+                    });
+                    
                     parent.classList.toggle('mobile-open');
                 }
             });
