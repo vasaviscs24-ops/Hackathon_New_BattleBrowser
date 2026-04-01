@@ -1116,18 +1116,25 @@ footer {
 
   /* Placement & Research Specifics & Admissions */
   .partner-grid, .propel-labs-grid, .labs-container, .grid-sections, .branch-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 20px;
   }
 
   .lead-section {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 
   .lead-photo-container {
-    max-width: 320px;
+    max-width: 280px;
     margin: 0 auto;
+  }
+
+  /* Global word wrap to prevent text clipping */
+  * {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
   }
 
   .research-stats-table {
@@ -1152,18 +1159,34 @@ footer {
   }
 
   /* General Typography & Layout Scaling */
-  h1.text-gradient {
-    font-size: 2.8rem !important;
+  h1.text-gradient, .hero-title {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    word-break: break-word;
   }
 
-  .about-header {
-    height: auto !important;
-    min-height: 30vh !important;
-    padding: 100px 20px 60px !important;
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-tagline, .hero-intro {
+    font-size: 1rem !important;
+    padding: 0 10px;
+    margin-bottom: 25px !important;
+  }
+
+  /* Ensure all content blocks have safety padding to prevent "cut info" */
+  .section-box, .preview-container, .academic-content-container, .admission-section, .facilities-grid, .info-card, .form-card {
+    padding: 25px 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   footer {
-    padding: 30px 20px;
+    padding: 30px 15px;
     font-size: 0.85rem;
   }
 }
