@@ -902,19 +902,19 @@ footer {
 
   .nav-links {
     position: fixed !important;
-    top: 0;
+    top: 70px !important; /* Start below the header */
     right: -100% !important;
     width: min(300px, 85vw);
-    height: 100vh;
+    height: calc(100vh - 70px) !important;
     background: #030a14 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0 !important;
-    padding: 100px 0 60px 0 !important;
+    padding: 20px 0 60px 0 !important; /* Reduced top padding since it starts lower */
     border-left: 1px solid rgba(0, 242, 254, 0.2);
-    z-index: 1000010 !important; /* Above everything but hamburger */
+    z-index: 1000010 !important; 
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto !important;
     display: flex !important;
