@@ -1222,9 +1222,10 @@ footer {
   }
 }
 
-/* Global overflow protection */
+/* Global overflow protection - allowed horizontal scroll per user request */
 html, body {
-  overflow-x: hidden;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   width: 100%;
 }
