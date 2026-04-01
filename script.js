@@ -13,6 +13,15 @@ window.addEventListener('scroll', () => {
 // Trigger Curtain and Sequential Entrance on Page Load
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    
+    // Cleanup curtain after animation to prevent horizontal scroll issues
+    setTimeout(() => {
+        const curtain = document.querySelector('.curtain-wrapper');
+        if (curtain) curtain.style.display = 'none';
+        
+        // Remove individual curtain panels just to be sure
+        document.querySelectorAll('.curtain-panel').forEach(p => p.style.display = 'none');
+    }, 2500); 
 });
 
 /* =========================================

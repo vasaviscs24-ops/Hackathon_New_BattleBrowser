@@ -1137,14 +1137,45 @@ footer {
     word-break: normal;
   }
 
-  .research-stats-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
+  .research-stats-table, .fee-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
+    padding-bottom: 20px;
+    border-radius: 12px;
   }
 
-  /* Contact Page Specifics */
+  /* Facilities Portal Specifics */
+  .fac-block {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important; /* Reset RTL for mobile stacking */
+  }
+
+  .fac-block.reverse {
+    direction: ltr !important;
+  }
+
+  .fac-text {
+    padding: 30px 20px !important;
+  }
+
+  .fac-num {
+    font-size: 3rem !important;
+  }
+
+  .fac-title {
+    font-size: 1.6rem !important;
+  }
+
+  .fac-img-wrap {
+    min-height: 250px !important;
+  }
+
+  .fac-body {
+    padding: 40px 15px !important;
+  }
   .contact-grid, .form-grid {
     grid-template-columns: 1fr;
     gap: 30px;
