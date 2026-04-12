@@ -234,3 +234,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* =========================================
+   NUMBER COUNTING ANIMATION
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.count-up');
+    const speed = 100;
+
+    const startCounting = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0; // Ensures it starts at 0 properly
+        const inc = target / speed;
+
+        const updateCount = () => {
+            count += inc;
+            if (count < target) {
+                counter.innerText = Math.ceil(count);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    };
+
+    const countObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                startCounting(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        // Explicitly set to 0 initially
+        counter.innerText = '0';
+        countObserver.observe(counter);
+    });
+});
