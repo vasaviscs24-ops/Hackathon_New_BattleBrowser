@@ -347,148 +347,161 @@ document.addEventListener('DOMContentLoaded', () => {
      * 🧠 SUPER_KNOWLEDGE_BASE
      * Curated site-wide facts mined from 20+ HTML files.
      */
+    /**
+     * TIER-4 HYPER-INTELLIGENT KNOWLEDGE MATRIX
+     * --------------------------------------------------
+     * Injected with high-fidelity institutional data mined from site metadata.
+     */
     const SKI = {
         admissions: {
-            keywords: ['admission', 'apply', 'join', 'seat', 'quota', 'process', 'flow', 'management', 'icd', 'international', '2026', '2027'],
-            answer: `Admissions for the <b>2026-27 session</b> are currently open! We follow a strict merit-based process via <b>KEA, COMED-K</b>, and Management Quota. Detailed document checklists and procedure flows are available on our <a href="admissions.html" style="color:#00f2fe;font-weight:600;">Admissions Portal</a>.`
+            title: "Admissions 2026-27",
+            keywords: ['admission', 'apply', 'join', 'seat', 'quota', 'process', 'flow', 'management', 'icd', 'international', '2026', '2027', 'cutoff'],
+            answer: `Admissions for the **2026-27 session** are open! We offer multiple entry paths:<br>
+                &bull; **KEA (CET):** For Karnataka residents.<br>
+                &bull; **COMED-K:** For all-India candidates.<br>
+                &bull; **Management Quota:** Direct admissions based on merit.<br>
+                Visit the <a href="admissions.html" style="color:#00f2fe;font-weight:600;">Admissions Portal</a> for the procedure flow.`,
+            score: 1.0
         },
         fees: {
-            keywords: ['fee', 'cost', 'payment', 'price', 'lakh', 'structure', 'how much'],
-            answer: `The 2026-27 Management Fee structure (per annum) is:<br>
-                &bull; <b>CSE:</b> 15.0 Lakhs<br>
-                &bull; <b>AI & ML:</b> 12.5 Lakhs<br>
-                &bull; <b>ECE:</b> 9.0 Lakhs<br>
-                &bull; <b>Mech/Civil:</b> 6.0 Lakhs<br>
-                &bull; <b>Chemical:</b> 4.0 Lakhs<br>
-                Payments should be made via <b>Demand Draft</b> favoring <b>"BMS Educational Trust"</b>. See full list: <a href="admissions.html" style="color:#00f2fe;font-weight:600;">Fees Page</a>.`
-        },
-        fees_cse: {
-            keywords: ['cse', 'computer', 'science', 'fee', 'cost', '15', 'management'],
-            answer: `The Management quota fee for <b>Computer Science (CSE)</b> for the academic year 2026-27 is <b>15.0 Lakhs per annum</b>. It is payable via DD to "BMS Educational Trust".`
-        },
-        fees_aiml: {
-            keywords: ['aiml', 'artificial', 'intelligence', 'machine', 'learning', 'fee', 'cost', '12.5'],
-            answer: `The Management quota fee for <b>AI & ML</b> for the academic year 2026-27 is <b>12.5 Lakhs per annum</b>.`
-        },
-        fees_ece: {
-            keywords: ['ece', 'electronics', 'communication', 'fee', 'cost', '9'],
-            answer: `The Management quota fee for <b>Electronics & Communication (ECE)</b> for the academic year 2026-27 is <b>9.0 Lakhs per annum</b>.`
-        },
-        fees_core: {
-            keywords: ['mechanical', 'civil', 'mech', 'core', 'fee', 'cost', '6'],
-            answer: `The Management quota fee for <b>Mechanical or Civil Engineering</b> for the academic year 2026-27 is <b>6.0 Lakhs per annum</b>.`
-        },
-        eligibility: {
-            keywords: ['eligible', 'marks', 'percentage', 'criteria', 'requirement', 'qualify', '12th', 'puc'],
-            answer: `To qualify for B.E. programs, you need:<br>
-                &bull; <b>General Merit:</b> Min. 45% in Physics, Maths & Optional subjects.<br>
-                &bull; <b>SC/ST/OBC:</b> Min. 40% aggregate marks.<br>
-                Entrance exams like <b>KEA (CET), COMED-K, or JEE</b> are mandatory.`
-        },
-        placements: {
-            keywords: ['placement', 'job', 'package', 'company', 'recruit', 'salary', 'career', 'offer', 'dean', 'basavaraja'],
-            answer: `BMSCE is a top-tier placement destination. We have <b>350+ reputed companies</b> visiting annually and <b>18,500+ cumulative offers</b> since 1995. The cell is led by <b>Dr. J. Sharana Basavaraja (Dean)</b>. Visit: <a href="placement-about.html" style="color:#00f2fe;font-weight:600;">Placements Portal</a>.`
+            title: "Fee Structure (Annual)",
+            keywords: ['fee', 'cost', 'payment', 'price', 'lakh', 'structure', 'how much', 'money'],
+            answer: `Current Management Fees for major branches:<br>
+                &bull; **CSE:** 15.0 Lakhs<br>
+                &bull; **AI & ML:** 12.5 Lakhs<br>
+                &bull; **ECE:** 9.0 Lakhs<br>
+                &bull; **Core (Mech/Civil):** 6.0 Lakhs<br>
+                Payment via DD to **"BMS Educational Trust"**. Details on <a href="admissions.html" style="color:#00f2fe;font-weight:600;">Fees Page</a>.`,
+            score: 0.9
         },
         founders: {
+            title: "Heritage & Visionaries",
             keywords: ['founded', 'history', 'legacy', 'start', 'founder', 'sreenivasaiah', 'narayan', 'old', 'visionary', 'raja karya prasaktha'],
-            answer: `BMSCE was founded in <b>1946</b> by <b>Late Sri. B. M. Sreenivasaiah</b> (awarded 'Raja Karya Prasaktha' by the Maharaja of Mysore). His son, <b>Late Sri. B. S. Narayan</b>, later expanded it into a global hub. It is the <b>first private engineering college in India</b>.`
+            answer: `BMSCE is India's **first private technical institution**, founded in **1946** by **Late Sri. B. M. Sreenivasaiah**. His legacy was carried forward by **Late Sri. B. S. Narayan**, who established international collaborations with the Melton Foundation.`,
+            score: 1.1
+        },
+        cse: {
+            title: "Computer Science (CSE)",
+            keywords: ['cse', 'computer', 'science', 'coding', 'software', 'programming', 'sooda'],
+            answer: `The CSE department is led by **Dr. Kavitha Sooda (HOD)**. It features the premier **NVIDIA DGX Deep Learning Lab** and focus areas like Cloud Computing and AI. Visit: <a href="academics-cse.html" style="color:#00f2fe;font-weight:600;">CSE Dept</a>.`,
+            score: 1.2
+        },
+        ece: {
+            title: "Electronics (ECE)",
+            keywords: ['ece', 'electronics', 'communication', 'vlsi', 'signal', 'lakshmi'],
+            answer: `The ECE department is led by **Dr. K. P. Lakshmi (HOD)**. Key research areas include **Embedded Systems and VLSI Design**. Visit: <a href="academics-ece.html" style="color:#00f2fe;font-weight:600;">ECE Dept</a>.`,
+            score: 1.2
         },
         research_nano: {
-            keywords: ['research', 'patent', 'lab', 'innovat', 'nano', 'phd', 'cnd', 'display', 'liquid crystal', '2019', 'cleanroom'],
-            answer: `The <b>B S Narayan Centre for Nano-Materials & Displays (CND)</b>, launched in 2019, is our premier research hub. It features a <b>Class-1000 Cleanroom</b>, LCD Labs, and focuses on display tech, liquid crystals, and battery fabrication. Explore: <a href="research-nano.html" style="color:#00f2fe;font-weight:600;">Nano Research</a>.`
+            title: "Nanomaterials Centre (CND)",
+            keywords: ['research', 'patent', 'lab', 'innovat', 'nano', 'phd', 'cnd', 'display', 'cleanroom', 'liquid crystal'],
+            answer: `The **B S Narayan Centre for Nano-Materials & Displays (CND)** is our flagship research hive. It houses a **Class-1000 Cleanroom** for advanced display and battery research. Visit: <a href="research-nano.html" style="color:#00f2fe;font-weight:600;">Nano Centre</a>.`,
+            score: 1.1
         },
-        group: {
-            keywords: ['group', 'institution', 'bmsit', 'bmscl', 'bmssa', 'bmsca', 'women', 'law', 'architecture', 'degree', 'puc'],
-            answer: `The BMS Group includes premier institutions:<br>
-                &bull; <b>BMSIT:</b> Technology focus.<br>
-                &bull; <b>BMSSA & BMSCA:</b> Schools of Architecture.<br>
-                &bull; <b>BMSCL:</b> College of Law.<br>
-                &bull; <b>BMSCW:</b> Degree college for Women.<br>
-                Details: <a href="partner-institutions.html" style="color:#00f2fe;font-weight:600;">Group of Institutions</a>.`
+        placements: {
+            title: "Placement Statistics",
+            keywords: ['placement', 'job', 'package', 'company', 'recruit', 'salary', 'career', 'offer', 'basavaraja'],
+            answer: `Led by **Dr. J. Sharana Basavaraja (Dean)**, our placement cell has generated **18,500+ offers** with 350+ recruiters like Microsoft, Amazon, and NVIDIA visiting annually. Visit: <a href="placement-about.html" style="color:#00f2fe;font-weight:600;">Placements</a>.`,
+            score: 1.0
         },
         facilities: {
-            keywords: ['facility', 'hospital', 'hostel', 'library', 'data centre', 'gym', 'sports', 'counselling', 'medical', 'wifi', 'nvidia', 'dgx', '10 gbps'],
-            answer: `BMSCE provides world-class infrastructure:<br>
-                &bull; <b>Data Centre:</b> 10 Gbps backbone & NVIDIA DGX AI servers.<br>
-                &bull; <b>Hospital:</b> B S Narayan Memorial (24/7 care).<br>
-                &bull; <b>Library:</b> 1,00,000+ print volumes.<br>
-                &bull; <b>Sports:</b> International stadium & Gym.<br>
-                Explore: <a href="facilities.html" style="color:#00f2fe;font-weight:600;">Campus Facilities</a>.`
-        },
-        life: {
-            keywords: ['life', 'club', 'student', 'extracurricular', 'activity', 'fest', 'utsav', 'phaseshift', 'culture', 'sports', 'augment ai', 'bullz racing'],
-            answer: `Life here is electrifying with <b>30+ clubs</b> like Augment AI, Bullz Racing, and ACM. Our marquee fests are <b>Utsav</b> (Culture) and <b>Phase Shift</b> (Tech). Visit: <a href="life-at-bmsce.html" style="color:#00f2fe;font-weight:600;">Life at BMSCE</a>.`
+            title: "Campus Facilities",
+            keywords: ['facility', 'hospital', 'hostel', 'library', 'data centre', 'gym', 'sports', 'wifi', 'nvidia', 'dgx'],
+            answer: `BMSCE offers a 10Gbps campus backbone, a **24/7 B S Narayan Memorial Hospital**, and a high-density **AI Data Centre** featuring NVIDIA DGX servers. Explore: <a href="facilities.html" style="color:#00f2fe;font-weight:600;">Campus Map</a>.`,
+            score: 1.0
         },
         contact: {
-            keywords: ['contact', 'phone', 'email', 'call', 'reach', 'number', 'address', 'location', 'where', 'map', 'principal'],
-            answer: `<b>Address:</b> Bull Temple Road, Basavanagudi, Bengaluru - 560019.<br>
-                &bull; <b>Principal Office:</b> 080-26622130-35<br>
-                &bull; <b>Admission Office:</b> 080-26611636<br>
-                &bull; <b>Email:</b> info@bmsce.ac.in<br>
-                Map: <a href="contact.html" style="color:#00f2fe;font-weight:600;">Contact Us</a>.`
-        },
-        governance: {
-            keywords: ['governance', 'e-governance', 'online', 'portal', 'erp', 'it support', 'digital'],
-            answer: `BMSCE uses advanced E-Governance systems for all administrative and academic operations. Our IT backbone supports seamless digital workflows for students and faculty. Read about: <a href="e-governance.html" style="color:#00f2fe;font-weight:600;">E-Governance Portal</a>.`
+            title: "Contact & Support",
+            keywords: ['contact', 'phone', 'email', 'call', 'reach', 'number', 'address', 'location'],
+            answer: `**Main Campus:** Bull Temple Road, Bangalore - 560019.<br>
+                &bull; **Admin:** 080-26622130<br>
+                &bull; **Admissions:** 080-26611636<br>
+                &bull; **Email:** info@bmsce.ac.in`,
+            score: 1.3
         }
     };
 
     /**
-     * 🚀 TOKENIZED SEARCH ENGINE logic
+     * 🚀 TIER-4 WEIGHTED RETRIEVAL ENGINE
+     * Uses fuzzy mapping and weighted scoring for maximum intelligence.
      */
     const handleBotResponse = (userText) => {
-        const lowerText = userText.toLowerCase();
+        const query = userText.toLowerCase().trim();
+        const tokens = query.split(/\s+/).filter(t => t.length > 2);
         
-        // Filter noise words
-        const tokens = lowerText.split(/\s+/)
-            .filter(t => t.length > 2)
-            .filter(t => !['the', 'and', 'for', 'with', 'about', 'some', 'any', 'tell', 'show', 'give'].includes(t));
+        // Semantic Synonyms
+        const synonyms = {
+           "ai": "artificial intelligence",
+           "ml": "machine learning",
+           "coding": "cse computer science",
+           "marks": "eligibility cutoff",
+           "money": "fees structure",
+           "where": "location address contact",
+           "who": "principal dean leader"
+        };
+
+        let enrichedQuery = query;
+        for (const [key, value] of Object.entries(synonyms)) {
+            if (query.includes(key)) enrichedQuery += " " + value;
+        }
 
         let bestKey = null;
-        let highestScore = 0;
+        let maxScore = 0;
 
         for (const key in SKI) {
             const data = SKI[key];
             let currentScore = 0;
 
-            // Bigram/Keyword Cloud matching
-            tokens.forEach(token => {
-                data.keywords.forEach(kw => {
-                    // Exact match or partial inclusion
-                    if (kw === token) currentScore += 2;
-                    else if (kw.includes(token)) currentScore += 0.5;
-                });
+            // 1. Direct Title/Category Match (Highest Weight)
+            if (enrichedQuery.includes(key) || enrichedQuery.includes(data.title.toLowerCase())) {
+                currentScore += 15;
+            }
+
+            // 2. Keyword Vector Matching
+            data.keywords.forEach(kw => {
+                if (enrichedQuery.includes(kw)) {
+                    currentScore += 5;
+                    // Token-level exact match bonus
+                    if (tokens.includes(kw)) currentScore += 2;
+                }
             });
 
-            if (currentScore > highestScore) {
-                highestScore = currentScore;
+            // Apply base semantic multiplier
+            currentScore *= (data.score || 1.0);
+
+            if (currentScore > maxScore) {
+                maxScore = currentScore;
                 bestKey = key;
             }
         }
 
-        let response = "";
-        if (highestScore >= 1) {
-            response = SKI[bestKey].answer;
+        let botReply = "";
+        if (maxScore > 4) {
+            const match = SKI[bestKey];
+            botReply = `**${match.title}**<br><br>${match.answer}`;
         } else {
-            // Intelligent Fallback
-            response = "I couldn't find a direct answer to that, but here are the most requested topics I know about:<br><br>" +
+            botReply = "I couldn't find a direct match, but I can help you with:<br><br>" +
                        "<button class='quick-btn' data-q='admissions'>Admissions</button> " +
-                       "<button class='quick-btn' data-q='fees'>Fees Structure</button> " +
+                       "<button class='quick-btn' data-q='fees'>Fees</button> " +
                        "<button class='quick-btn' data-q='placements'>Placements</button> " +
-                       "<button class='quick-btn' data-q='research'>Research Labs</button>";
+                       "<button class='quick-btn' data-q='cse'>CSE Dept</button>";
         }
 
+        // Simulate "Thinking" for high-intel feel
         setTimeout(() => {
-            addMessage(response, 'bot');
-            // Attach event listeners to fallback buttons
-            document.querySelectorAll('.quick-btn').forEach(btn => {
-                btn.onclick = () => {
-                    const q = btn.getAttribute('data-q');
-                    addMessage(`Tell me about ${q}`, 'user');
-                    handleBotResponse(q);
-                };
-            });
-        }, 600);
+            addMessage(botReply, 'bot');
+            attachQuickBtnListeners();
+        }, 550);
+    };
+
+    const attachQuickBtnListeners = () => {
+        document.querySelectorAll('.quick-btn').forEach(btn => {
+            btn.onclick = () => {
+                const q = btn.getAttribute('data-q');
+                addMessage(q.charAt(0).toUpperCase() + q.slice(1), 'user');
+                handleBotResponse(q);
+            };
+        });
     };
 
     form.addEventListener('submit', (e) => {
